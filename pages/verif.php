@@ -1,19 +1,12 @@
 <?php 
- require_once (__DIR__ . 'config/init.php');
-if($_GET['id'] == 'subscribe') {
+require_once ('../config/init.php');
 
-    $user = new User($_POST['email'], $_POST['password'], $_POST['role']);
+if($_GET['id'] == 'login') {
 
-    UserController::subscribe($user);
-   
-   
-    // header('Location: /');
-}
-
-else if($_GET['id'] == 'login') {
-
-    UserController::login($user);
+    $user = login();
     
+    UserController::login($user);
+
 }
 
 

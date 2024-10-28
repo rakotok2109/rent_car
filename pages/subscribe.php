@@ -8,7 +8,6 @@
     <form action="/verif.php?id=subscribe" method="post">
         <input type="email" name="email" id="email" placeholder="Enter your email">
         <button type="submit">Inscription</button>
-    </form>
-    
+    </form>   
 </body>
 </html>

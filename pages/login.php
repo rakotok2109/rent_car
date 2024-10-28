@@ -1,7 +1,7 @@
 <?php
 session_start();
+require_once('../config/init.php');
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

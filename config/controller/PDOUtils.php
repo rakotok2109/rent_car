@@ -21,7 +21,7 @@ class PDOUtils {
 
 if($statement && $statement->execute($params)) {
 
-           $result = $statement->execute($params);
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
            unset($statement);
               return $result;
 }

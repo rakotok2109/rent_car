@@ -8,6 +8,21 @@ if($_GET['id'] == 'subscribe') {
    
    
     // header('Location: /');
-} else {
-    echo 'Error';
 }
+// else if($_GET['id'] == 'login') {
+//     $user = UserController::login($_POST['email'], $_POST['password']);
+//     if($user) {
+//         $_SESSION['user'] = $user;
+//         header('Location: /');
+//     }
+//     else {
+//         header('Location: /?error=1');
+//     }
+// }
+// else if($_GET['id'] == 'logout') {
+//     unset($_SESSION['user']);
+//     header('Location: /');
+// }
+// else {
+//     header('Location: /');
+// }

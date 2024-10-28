@@ -5,8 +5,7 @@ class User {
     private $email_;
     private $password_;
     private $role_;
-    private $created_at_;
-    private $updated_at_;
+   
 
     public function __construct($email, $password, $role, $id = null) {
 
@@ -47,26 +46,8 @@ class User {
         $this->role_ = $role;
     }
 
-    public function getCreatedAt() {
-        return $this->created_at_;
-    }
 
-    public function setCreatedAt($created_at) {
-        $this->created_at_ = $created_at;
-    }
 
-    public function getUpdatedAt() {
-        return $this->updated_at_;
-    }
-
-    public function setUpdatedAt($updated_at) {
-        $this->updated_at_ = $updated_at;
-    }
-
-    public function save() {
-        $pdo = PDOUtils::getSharedInstance();
-        $pdo->execSQL('INSERT INTO users (email, password, role) VALUES (?, ?, ?)', [$this->email_, $this->password_, $this->role_]);
-    }
 
     public static function findByEmail($email) {
         $pdo = PDOUtils::getSharedInstance();
@@ -74,8 +55,7 @@ class User {
         if($result) {
             $user = new User($result['email'], $result['password'], $result['role']);
             $user->setId($result['id']);
-            $user->setCreatedAt($result['created_at']);
-            $user->setUpdatedAt($result['updated_at']);
+           
             return $user;
         }
         return null;

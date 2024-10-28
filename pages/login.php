@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +13,7 @@
 <body>
 <body>
     <div class="form-container">
-        <form action="../config/controller/UserController.php" method="POST">
+        <form action="/verif.php?id=login" method="POST">
             <label for="email"></label>
             <input type="email" id="email" name="email"  placeholder="Email">
         

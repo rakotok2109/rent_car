@@ -2,14 +2,19 @@
 
 class User {
     private $id_;
+    private $name_;
+    private $fistname_;
+    private $phone_;
     private $email_;
     private $password_;
     private $role_;
-   
 
-    public function __construct($email, $password, $role, $id = null) {
+    public function __construct($name, $firstname, $phone, $email, $password, $role, $id = null) {
 
-        $this->email_ = strtolower(trim($email))  ;
+        $this->name_ = $name;
+        $this->firstname_ = $firstname;
+        $this->phone_ = $phone;
+        $this->email_ = strtolower(trim($email));
         $this->password_ = $password;
         $this->role_ = $role;
     }
@@ -21,6 +26,31 @@ class User {
     public function setId($id) {
         $this->id_ = $id;
     }
+
+    public function getName() {
+        return $this->name_;
+    }
+
+    public function setName($name) {
+        $this->name_ = $name;
+    }
+
+    public function getFirstname() {
+        return $this->firstname_;
+    }
+
+    public function setFirstname($firstname) {
+        $this->firstname_ = $firstname;
+    }
+
+    public function getPhone() {
+        return $this->phone_;
+    }
+
+    public function setPhone($phone) {
+        $this->phone_ = $phone;
+    }
+
 
     public function getEmail() {
         return $this->email_;

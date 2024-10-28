@@ -10,10 +10,11 @@ class PDOUtils {
       
         public static function getSharedInstance()
         {
-            if (self::$sharedInstance_ == null) {
-                self::$sharedInstance_ = new PDOUtils();
+            if (!isset(PDOUtils::$sharedInstance_)) {
+                PDOUtils::$sharedInstance_ = new PDOUtils();
             }
-            return self::$sharedInstance_;
+        
+            return PDOUtils::$sharedInstance_;
         }
 
         public function requestSQL($sql, $params = null) {

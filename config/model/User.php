@@ -79,15 +79,15 @@ class User {
 
 
 
-    public static function findByEmail($email) {
-        $pdo = PDOUtils::getSharedInstance();
-        $result = $pdo->requestSQL('SELECT * FROM users WHERE email = ?', [$email]);
-        if($result) {
-            $user = new User($result['email'], $result['password'], $result['role']);
-            $user->setId($result['id']);
+    // public static function findByEmail($email) {
+    //     $pdo = PDOUtils::getSharedInstance();
+    //     $result = $pdo->requestSQL('SELECT * FROM users WHERE email = ?', [$email]);
+    //     if($result) {
+    //         $user = new User($result['email'], $result['password'], $result['role']);
+    //         $user->setId($result['id']);
            
-            return $user;
-        }
-        return null;
-    }
+    //         return $user;
+    //     }
+    //     return null;
+    // }
 }

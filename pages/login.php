@@ -1,6 +1,6 @@
-<?php
-session_start();
-require_once('../config/init.php');
+<?php 
+require_once  '../config/init.php'
+ 
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require_once('../config/init.php');
 <body>
 <body>
     <div class="form-container">
-        <form action="/verif.php?id=login" method="POST">
+        <form action="../pages/verif.php?id=login" method="POST">
             <label for="email"></label>
             <input type="email" id="email" name="email"  placeholder="Email">
         

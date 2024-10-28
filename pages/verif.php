@@ -15,7 +15,7 @@ if($_GET['id'] == 'subscribe') {
     UserController::validateEmail($user->getEmail());
 
     if(isset( $_SESSION['inscriptionErreur'])) {
-        header('Location: /subscribe.php');
+        header('Location: /pages/subscribe.php');
     }
 
     else{

@@ -22,6 +22,19 @@ class UserController {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['inscriptionErreur'][] = 3;
         }
+        //Vérifier si l'email existe déjà
+        if (UserController::emailExists($email)) {
+            $_SESSION['inscriptionErreur'][] = 2;
+        }
+        
+
+    }
+
+    public static function emailExists($email)
+    {
+        $pdo = PDOUtils::getSharedInstance();
+        $result = $pdo->execSQL('SELECT * FROM users WHERE email = ?', [$email]);
+        return count($result) > 0;
     }
 
     public static function subscribe (User $user)

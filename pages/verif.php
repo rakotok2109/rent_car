@@ -26,6 +26,5 @@ if($_GET['id'] == 'subscribe') {
 }
 
 else if($_GET['id'] == 'login') {
-    $email = $_POST['email'];
-    $password_deshashe = $_POST['password'];
+     UserController::login($_POST['email'], $_POST['password']);
 }

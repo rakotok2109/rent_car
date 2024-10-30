@@ -4,16 +4,16 @@ require_once('../config/init.php');
 
 class UserController {
     public static function login($email, $password) {
-
         $pdo = PDOUtils::getSharedInstance();
-        $result = $pdo->requestSQL('SELECT * FROM users WHERE password = ?', [$password]);
-        if ($result) {
-            $_SESSION['id'] = $row['id'];
-            $_SESSION['email'] = $email;
-            header("Location: ../../pages/profil.php");
-            exit();
+        $result = $pdo->requestSQL('SELECT * FROM users WHERE email = ?', [$email]);
+        if ($_POST['email']) {
+            if (password_verify($password, $result['password'])){
+                print('GOOD');
+            } else {
+                print("Mot de passe incotrect");
+            }
         } else {
-            echo "Combinaison email et mot de passe incorrect.";
+            print("L'email renseigné est incorrect");
         }
     }
 
@@ -23,9 +23,9 @@ class UserController {
             $_SESSION['inscriptionErreur'][] = 3;
         }
         //Vérifier si l'email existe déjà
-        if (UserController::emailExists($email)) {
-            $_SESSION['inscriptionErreur'][] = 2;
-        }
+        //if (UserController::emailExists($email)) {
+        //    $_SESSION['inscriptionErreur'][] = 2;
+        //}
         
 
     }

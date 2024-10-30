@@ -13,4 +13,11 @@ h1 {
   font-family: "Open Sans";
 }
 
+.container-subscribe {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 /*# sourceMappingURL=style.css.map */

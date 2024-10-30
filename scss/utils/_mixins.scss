@@ -25,3 +25,9 @@
     justify-content: center;
     gap: $input-gap;
 }
+
+@mixin style-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

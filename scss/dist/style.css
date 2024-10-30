@@ -17,6 +17,21 @@ span {
   color: #FFFFFF;
 }
 
+button {
+  background-color: #D5FD05;
+  color: #08323D;
+  border: 1px solid #C1BBBB;
+  height: 61px;
+  width: 23%;
+  text-align: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container-subscribe {
   display: flex;
   flex-direction: row;

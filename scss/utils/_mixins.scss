@@ -10,3 +10,9 @@
     display: flex;
     flex-direction: column;
 }
+
+@mixin style-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

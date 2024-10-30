@@ -1,0 +1,8 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.input {
+    @include style-input;
+    background-color: $white-color;
+    border: $border-weight $border-color;
+}

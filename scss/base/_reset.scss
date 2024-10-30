@@ -1,0 +1,6 @@
+@use '../utils/variables' as *;
+
+* {
+    margin: $margin-unit;
+    padding: $padding-unit;
+}

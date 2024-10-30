@@ -8,3 +8,9 @@
 body {
     background-color: $primary-color;
 }
+
+h1 {
+    color: $secondary-color;
+    font-size: $font-size-h1;
+    font-family: $font-family-h1;
+}

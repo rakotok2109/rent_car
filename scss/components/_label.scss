@@ -1,0 +1,8 @@
+@use '../utils/variables' as *;
+
+.label{
+    font-size: $font-size-base;
+    color: $primary-color;
+    font-weight: bold;
+    margin-bottom: calc($margin-unit / 2);
+}

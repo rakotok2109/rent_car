@@ -1,0 +1,28 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+.input{
+    // margin-bottom: $margin-unit; 
+    padding: $padding-unit; 
+    width: 100%; 
+    color: $primary-color; 
+    border-bottom: 1px solid  gray; 
+    // border-radius: $border-radius;
+  
+    &:focus {
+        border-bottom: 2px solid  $primary-color; 
+      
+        border-left: 2px solid $secondary-color;
+
+        outline: none; // Supprimer la bordure automatique
+      
+    } 
+
+   
+}
+
+
+
+.input-error {
+    border-color: $error-color;
+}
+

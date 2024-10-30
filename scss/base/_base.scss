@@ -1,0 +1,5 @@
+@use '../utils/variables' as *;
+
+body{
+    padding: $padding-unit;
+}

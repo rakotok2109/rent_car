@@ -1,0 +1,11 @@
+@function lighten-color($color, $percent) {
+    @return mix(white, $color, $percent);
+}
+
+@function darken-color($color, $percent) {
+    @return mix(black, $color, $percent);
+}
+
+ @function edit-color($mix, $color, $percent) {
+    @return mix($mix, $color, $percent);
+ }

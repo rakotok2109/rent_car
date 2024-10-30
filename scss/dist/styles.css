@@ -1,0 +1,21 @@
+.button {
+  background-color: #1a202c;
+  color: #ffffff;
+}
+.button:hover {
+  background-color: #5f636b;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a202c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=styles.css.map */

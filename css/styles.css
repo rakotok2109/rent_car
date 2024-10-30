@@ -1,0 +1,54 @@
+.button {
+  background-color: #D5FD05;
+  color: #08323D;
+  padding: 4px;
+  border-radius: 4px;
+}
+.button:hover {
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: #95b104;
+  color: #ffffff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #08323D;
+}
+
+.input {
+  padding: 4px;
+  width: 100%;
+  color: #08323D;
+  border-bottom: 1px solid gray;
+}
+.input:focus {
+  border-bottom: 2px solid #08323D;
+  border-left: 2px solid #D5FD05;
+  outline: none;
+}
+
+.input-error {
+  border-color: #FF0000;
+}
+
+.label {
+  font-size: 16px;
+  color: #08323D;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 4px;
+}
+
+/*# sourceMappingURL=styles.css.map */

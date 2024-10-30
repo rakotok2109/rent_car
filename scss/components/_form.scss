@@ -1,6 +1,15 @@
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
 
+
+.form-wording {
+    @include style-input;
+}
+
+.container-form {
+    @include style-container;
+}
+
 .input-form {
     @include style-form;
 }

@@ -5,4 +5,18 @@
     @include style-input;
     background-color: $white-color;
     border: $border-weight $border-color;
+    height: $max-height-input;
+}
+
+input {
+    border: none;
+}
+
+label {
+    color: $font-label-color;
+}
+
+::placeholder {
+    color: $black-color;
+    font-weight: $font-wheight;
 }

@@ -16,21 +16,33 @@
 
             <div class="content-form">
                 <form action="../pages/verif.php?id=subscribe" method="post">
-                    <label for="first_name">Prénom</label>
-                    <input type="text" id="firstname" name="firstname" placeholder="First name">
-        
-                    <label for="name">Nom</label>
-                    <input type="text" id="name" name="lastname" placeholder="Name">
-        
-                    <label for="phone">Numéro de téléphone</label>
-                    <input type="tel" id="phone" name="phone" placeholder="07 XX XX XX XX">
-        
-                    <label for="email">Adresse e-mail</label>
-                    <input type="email" id="email" name="email" placeholder="mail@digital.com">
-        
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" placeholder="********">
-        
+                    <div class="input-form">
+                        <div class="input">
+                            <label for="first_name">Prénom</label>
+                            <input type="text" id="firstname" name="firstname" placeholder="First name">
+                        </div>
+
+                        <div class="input"></div>
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="lastname" placeholder="Name">
+                        </div>
+
+                        <div class="input">
+                            <label for="phone">Numéro de téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="07 XX XX XX XX">
+                        </div>
+
+                        <div class="input">
+                            <label for="email">Adresse e-mail</label>
+                            <input type="email" id="email" name="email" placeholder="mail@digital.com">
+                        </div>
+
+                        <div class="input">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" id="password" name="password" placeholder="********">
+                        </div>
+                    </div>
+
                     <div class="role-choices">
                         <input type="radio" id="loueur" name="role" value=1 class="mr-2">
                         <label for="loueur">Loueur</label>
@@ -42,7 +54,6 @@
                 </form>
             </div>
         </div>
-
         <div class="container-banner">
             <img src="images/ressources/carOnSubscribeForm.png">
         </div>

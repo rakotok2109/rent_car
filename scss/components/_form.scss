@@ -2,14 +2,63 @@
 @use '../utils/mixins' as *;
 
 
-.form-wording {
-    @include style-input;
+
+.container-subscribe {
+    @include flex-center;
+    @include flex-row;
+
+
+
+  
+    padding: 20px;
+
+    @media screen and (max-width: 768px) {
+        @include flex-column-reverse;
+        
+    }
+    color: white;;
+
+}
+
+
+.form-title{
+    font-size: $font-size-base*2;
+    font-weight: bold;
+    margin-bottom: $margin-unit*3;
+    color: $secondary-color;
 }
 
 .container-form {
-    @include style-container;
+    padding: $padding-unit;
+    border-radius: $border-radius;
+    width: 100%;
+    margin-top: $margin-unit*3;
+  
 }
 
-.input-form {
-    @include style-form;
+.label-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    // Width of the container parent (full)
+    width: 100%;
+    box-sizing: border-box;
+
+
+  
+   margin-bottom: $margin-unit*4;
+}
+
+
+
+
+.content-form
+{
+    padding: $padding-unit*2; 
+    border-radius: $border-radius; 
+    background-color: $white-color; 
+    width: 100%; 
+    margin-top: $margin-unit; 
+    margin-bottom: $margin-unit*2;
 }

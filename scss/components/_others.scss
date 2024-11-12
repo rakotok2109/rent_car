@@ -1,0 +1,35 @@
+.image {
+    position: relative;
+    margin-top: 20px;
+    
+// Reduire la taille de l'image sur petit écran
+    @media screen and (max-width: 600px) {
+        width: 90%;
+    }
+}
+.image img {
+    width: 100%;
+    height: auto;
+}
+
+.circle {
+    position: absolute;
+    background-color:#D5FD05 ; /* Couleur du cercle */
+    border-radius: 50%;
+    width: 350px;
+    height: 400px;
+    top: 50%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+    /* Animation du cercle */
+    animation: circleAnimation 2s infinite;
+
+    //reduire la taille sur petit écran
+    @media screen and (max-width: 600px) {
+        width: 250px;
+        height: 250px;
+        top: 40%;
+    }
+}

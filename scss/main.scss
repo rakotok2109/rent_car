@@ -13,7 +13,9 @@
 
 @use 'components/cards';
 @use 'components/form';
-@use 'components/container-subscribe';
+@use 'components/others';
+@use 'components/errorDiv';
+
 
 // Import du layout
 @use 'layout/header';

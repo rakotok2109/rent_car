@@ -1,6 +1,0 @@
-@use '../utils/variables' as *;
-@use '../utils/mixins' as *;
-
-.container-subscribe {
-    @include style-device;
-}

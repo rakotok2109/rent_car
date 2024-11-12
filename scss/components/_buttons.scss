@@ -6,7 +6,20 @@
     background-color: $secondary-color ;
     color: $primary-color;
     padding: $padding-unit;
+    border: 1px solid #C1BBBB;
     border-radius: $border-radius;
+    width: fit-content;
+    text-align: center;
+    cursor: pointer;
+
+   
+     justify-self: center;
     
-  @include button-animation;
+    
+  @include style-button;
+}
+
+
+.btn{
+    @include style-button;
 }

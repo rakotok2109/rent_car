@@ -3,28 +3,26 @@
 @use '../utils/mixins' as *;
 
 .input{
-    // @include style-input;
-    background-color: $white-color;
-    border: $border-weight $border-color;
-    height: $max-height-input;
-
-    &:focus {
-        border-bottom: 2px solid  $primary-color; 
-      
+   
+    width: 100%;
+    color: $primary-color;
+    border-bottom: $border-weight $border-color !important;
+border: none;
+    &:focus{
+        border-bottom: 2px solid $primary-color;
         border-left: 2px solid $secondary-color;
+        outline: none;
+    }
 
-        outline: none; // Supprimer la bordure automatique
-      
-    } 
+
+
 
     &::placeholder{
         color: $black-color;
-        font-weight: $font-wheight;
+        font-weight: bold;
     }
 
 }
-
-
 
 
 .input-error {
@@ -35,3 +33,21 @@
 .role-choices label{
     color: $secondary-color;
 }
+
+
+.role-choices .radio {
+    appearance: none; /* Supprime l'apparence par défaut */
+    width: 20px; /* Largeur du carré */
+    height: 20px; /* Hauteur du carré */
+    border: 2px solid #E5E5E5; 
+    background-color: $white-color;
+    border-radius: 0; /* Pas de coins arrondis */
+    outline: none; /* Supprime le contour */
+    cursor: pointer; /* Change le curseur au survol */
+}
+
+.role-choices .radio:checked {
+    background-color: $secondary-color; /* Couleur de fond lorsque sélectionné */
+}
+
+// make input radio square form

@@ -1,13 +1,13 @@
 @use '../utils/variables' as *;
 @use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
 .input{
-    // margin-bottom: $margin-unit; 
-    padding: $padding-unit; 
-    width: 100%; 
-    color: $primary-color; 
-    border-bottom: 1px solid  gray; 
-    // border-radius: $border-radius;
-  
+    // @include style-input;
+    background-color: $white-color;
+    border: $border-weight $border-color;
+    height: $max-height-input;
+
     &:focus {
         border-bottom: 2px solid  $primary-color; 
       
@@ -17,8 +17,13 @@
       
     } 
 
-   
+    &::placeholder{
+        color: $black-color;
+        font-weight: $font-wheight;
+    }
+
 }
+
 
 
 
@@ -26,3 +31,7 @@
     border-color: $error-color;
 }
 
+
+.role-choices label{
+    color: $secondary-color;
+}

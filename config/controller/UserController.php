@@ -11,6 +11,21 @@ class UserController {
         $pdo->execSQL('INSERT INTO users (email, password,nom, prenom, phone, role) VALUES (?, ?, ?, ?, ?, ?)', [$user->getEmail(), $password, $user->getName(),$user->getFirstname(),$user->getPhone() ,$user->getRole()]);
     }
 
+    public static function login($email, $password) {
+        $pdo = PDOUtils::getSharedInstance();
+        $result = $pdo->requestSQL('SELECT * FROM users WHERE email = ?', [$email]);
+        if ($_POST['email']) {
+            if (password_verify($password, $result['password'])){
+                print('GOOD');
+            } else {
+                print("Mot de passe incorrect");
+            }
+        } else {
+            print("L'email renseigné est incorrect");
+        }
+    }
+
+
 
     
     public static function emailExists($email)

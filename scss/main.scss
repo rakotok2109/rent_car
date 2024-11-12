@@ -3,18 +3,24 @@
 @use 'utils/mixins';
 @use 'utils/functions';
 
+
 // Import des composants
 @use 'components/buttons';
 @use 'components/navbar';
 @use 'components/input';
 @use 'components/label';
 
-// Import des styles de base
-@use 'base/typography';
-@use 'base/reset';
-@use 'base/base';
+
+@use 'components/cards';
+@use 'components/form';
+@use 'components/container-subscribe';
 
 // Import du layout
 @use 'layout/header';
 @use 'layout/footer';
 @use 'layout/grid';
+
+// Import des styles de base
+@use 'base/typography';
+@use 'base/reset';
+@use 'base/base';

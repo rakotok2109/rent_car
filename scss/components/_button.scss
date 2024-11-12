@@ -1,0 +1,15 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+button {
+    background-color: $secondary-color;
+    color: $primary-color;
+    border: $border-weight $border-color;
+    height: $button-height;
+    width: $width-percent;
+    text-align: center;
+}
+
+.btn {
+    @include style-button;
+}

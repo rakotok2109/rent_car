@@ -1,0 +1,185 @@
+
+
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// Header
+.header {
+    background-color: $primary-color;
+    padding: $padding-unit*4 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+ 
+   
+    .auth-buttons {
+        .btn {
+            background-color: $accent-color !important;
+            border: none !important;
+            padding: $padding-unit*2 $padding-unit*5 !important;  
+            color: $white-color !important;
+        }
+    }
+}
+
+// Section Hero
+.hero {
+   
+   margin-top: 0;
+    color: $white-color;
+    // padding: $padding-unit*10 $padding-unit*5;
+  
+    text-align: center;
+    margin-bottom: $margin-unit;
+
+   
+
+    .container{
+
+max-width: none !important;   
+padding: 0 !important;    
+margin: 0 !important;    
+
+        align-items: center;
+
+        .hero1{
+          
+            background-color: $primary-color !important;
+            display: flex;
+            flex-direction: row;
+            padding: 0 $padding-unit*4;
+            align-items: center;
+            justify-content: center;
+
+          
+
+            .car-image {
+                scale: 0.8;
+              margin-right: 10%;  
+              position: relative;
+              z-index: 2;
+                top: 20px;
+                right: 0;
+                width: 50%;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+                
+
+                .cercle
+                {
+                    position: absolute; 
+                    top: 50%; 
+                    left: 78%; 
+                    width: 350px; 
+                    height: 400px;
+                    background-color: #D5FD05; 
+                    border-radius: 50%; 
+                    z-index: -1; 
+                    transform: translate(-50%, -50%);
+                }
+            }
+            .hero-text{
+                display: flex;
+                flex-direction: column; 
+                justify-content: center;
+                text-align: left;
+                max-width: 40%;
+                height: 100%;
+                align-items: flex-start; 
+                margin-left: $margin-unit*20;
+
+                h1{
+                    font-size: $font-size-h1;
+                    color: $white-color;
+                    margin-bottom: $margin-unit;
+                    text-align: left;
+                    align-self: center;
+                }
+            }
+        }
+
+        .search-box {
+            margin: 10% 10%;
+            background-color: $white-color !important;
+            padding: $padding-unit*4;
+            border-radius: $border-radius*2;
+    
+            .search-form {
+               @include flex-row;
+                gap: $gap*2;
+                flex-wrap: wrap;
+    
+                .label-input-container {
+                    flex: 1;
+                    input {      
+                border-radius: 5px !important;
+                border: $border-weight $border-color !important;
+                   
+                    }
+                }
+                .btn-primary {
+                    background-color: $accent-color !important;
+                    border: none !important;
+                    padding: $padding-unit*2 $padding-unit*5 !important;
+                    color: $white-color !important;
+                   
+                    transition: background-color 0.3s !important;
+    
+                    &:hover {
+                        background-color: darken($accent-color, 10%) !important;
+                    }
+                }
+            }
+        }
+    }
+
+   
+   
+}
+
+
+// Section Cars
+// .cars {
+//     padding: 40px 20px;
+
+//     .car-list {
+//         display: flex;
+//         gap: 20px;
+
+//         .car-card {
+//             background: $text-color;
+//             color: $primary-color;
+//             border-radius: 10px;
+//             padding: 20px;
+//             text-align: center;
+
+//             img {
+//                 max-width: 100%;
+//                 border-radius: 10px;
+//             }
+//             .car-info {
+//                 h3 {
+//                     margin: 10px 0;
+//                 }
+//                 span {
+//                     font-weight: bold;
+//                     color: $accent-color;
+//                 }
+//             }
+//         }
+//     }
+// }

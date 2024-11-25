@@ -43,6 +43,18 @@
 
 }
 
+// Mixin pour les liens avec hover
+@mixin link-style($hover-color) {
+  color: $color-text-muted;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+
+  &:hover {
+      opacity: 1;
+  }
+}
+
 
 
 @mixin style-container {

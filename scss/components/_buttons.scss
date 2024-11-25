@@ -2,11 +2,11 @@
 @use '../utils/functions' as *;
 @use '../utils/mixins' as *;
 
-.button {
+button {
     background-color: $secondary-color ;
     color: $primary-color;
     padding: $padding-unit;
-    border: 1px solid #C1BBBB;
+    border: $border-weight $border-color;
     border-radius: $border-radius;
     width: fit-content;
     text-align: center;

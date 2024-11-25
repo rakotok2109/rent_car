@@ -14,7 +14,7 @@
 
 .circle {
     position: absolute;
-    background-color:#D5FD05 ; /* Couleur du cercle */
+    background-color:#D5FD05 !important; /* Couleur du cercle */
     border-radius: 50%;
     width: 350px;
     height: 400px;
@@ -25,6 +25,8 @@
 
     /* Animation du cercle */
     animation: circleAnimation 2s infinite;
+
+    
 
     //reduire la taille sur petit écran
     @media screen and (max-width: 600px) {

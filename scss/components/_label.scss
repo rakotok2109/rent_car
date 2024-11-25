@@ -1,7 +1,8 @@
 @use '../utils/variables' as *;
 @use '../utils/functions' as *;
 
-.label{
+label{
+    display: block;
     font-size: $font-size-base;
     color: lighten-color(gray, 10%) ;
     font-weight: bold;

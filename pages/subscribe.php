@@ -37,7 +37,7 @@ require_once  '../config/init.php'
         ?>
         </div>
 
-        <form class="container-form" action="../pages/verif.php?id=subscribe"
+        <form class="container-form" action="../utils/verif.php?id=subscribe"
                         method="post">
                         <div class="content-form">
                             <div class="label-input-container">

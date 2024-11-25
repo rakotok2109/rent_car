@@ -8,7 +8,7 @@
     @include flex-row;
 
 
-
+    background-color: $primary-color !important;
   
     padding: 20px;
 
@@ -16,7 +16,7 @@
         @include flex-column-reverse;
         
     }
-    color: white;;
+    color: white;
 
 }
 

@@ -1,7 +1,67 @@
-// .card {
-//   @include flex-center;
-//   background-color: #f2f2f2;
-//   border-radius: 5px;
-//   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-//   transition: 0.3s;
-// }
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+
+.card {
+    flex: 0 0 auto;
+    width: 260px;
+    background: $white-color;
+    border-radius: $border-radius*2;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover{
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    img{
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      
+    }
+
+
+    .card-content{
+        padding: $padding-unit*3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+  
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: $primary-color;
+            margin-bottom: $margin-unit*2;
+        }
+
+        p {
+            font-size: 0.875rem;
+            color: #4a5568;
+            margin-bottom: $margin-unit;
+        }
+
+        .book-now {
+            background-color: $accent-color; 
+            color: $white-color;
+            font-size: 0.875rem;
+            font-weight: bold;
+            padding: $padding-unit*2 $padding-unit*4;
+            border-radius: $border-radius*2;
+            margin-top: $padding-unit*2;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+    
+        .book-now:hover {
+            background-color: darken($color: $accent-color, $amount: 30%);
+        }
+    }
+
+   
+}

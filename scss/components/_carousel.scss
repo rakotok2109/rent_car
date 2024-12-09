@@ -1,0 +1,14 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;       
+    .carousel {
+        display: flex;
+        overflow-x: auto;
+        padding: $padding-unit*5 0;
+        gap: $gap*4;
+        scrollbar-width: none; 
+    }
+
+    .carousel::-webkit-scrollbar {
+        display: none; 
+    }

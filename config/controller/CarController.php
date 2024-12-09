@@ -6,7 +6,7 @@ class CarController
     public static function addCar(Car $car)
     {
         $pdo = PDOUtils::getSharedInstance();
-        $pdo->execSQL('INSERT INTO cars (brand, model, kilometrage, description, vitesse, year, image, idOwner) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [$car->getBrand(), $car->getModel(), $car->getKilometrage(), $car->getDescription(), $car->getVitesse(), $car->getYear(), $car->getImage(), $car->getIdOwner()]);
+        $pdo->execSQL('INSERT INTO cars (brand, model, kilometrage, description, vitesse, year, image, idOwner, prix, ville) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$car->getBrand(), $car->getModel(), $car->getKilometrage(), $car->getDescription(), $car->getVitesse(), $car->getYear(), $car->getImage(), $car->getIdOwner(), $car->getprix(), $car->getVille()]);
     }
 
     public static function getAllCars()
@@ -15,7 +15,7 @@ class CarController
         $result = $pdo->requestSQL('SELECT * FROM cars', []);
         $cars = [];
         foreach ($result as $car) {
-            $cars[] = new Car($car['id'], $car['brand'], $car['model'], $car['kilometrage'], $car['description'], $car['vitesse'], $car['year'], $car['image'], $car['idOwner']);
+            $cars[] = new Car($car['id'], $car['brand'], $car['model'], $car['kilometrage'], $car['description'], $car['vitesse'], $car['year'], $car['image'], $car['idOwner'], $car['prix'], $car['ville']);
         }
         return $cars;
     }
@@ -24,7 +24,7 @@ class CarController
     {
         $pdo = PDOUtils::getSharedInstance();
         $result = $pdo->requestSQL('SELECT * FROM cars WHERE id = ?', [$id]);
-        return new Car($result[0]['id'], $result[0]['brand'], $result[0]['model'], $result[0]['kilometrage'], $result[0]['description'], $result[0]['vitesse'], $result[0]['year'], $result[0]['image'], $result[0]['idOwner']);
+        return new Car($result[0]['id'], $result[0]['brand'], $result[0]['model'], $result[0]['kilometrage'], $result[0]['description'], $result[0]['vitesse'], $result[0]['year'], $result[0]['image'], $result[0]['idOwner'], $result[0]['prix'], $result[0]['ville']);
     }
 
     public static function getCarByOwner($idOwner)
@@ -33,7 +33,7 @@ class CarController
         $result = $pdo->requestSQL('SELECT * FROM cars WHERE idOwner = ?', [$idOwner]);
         $cars = [];
         foreach ($result as $car) {
-            $cars[] = new Car($car['id'], $car['brand'], $car['model'], $car['kilometrage'], $car['description'], $car['vitesse'], $car['year'], $car['image'], $car['idOwner']);
+            $cars[] = new Car($car['id'], $car['brand'], $car['model'], $car['kilometrage'], $car['description'], $car['vitesse'], $car['year'], $car['image'], $car['idOwner'], $car['prix'], $car['ville']);
         }
         return $cars;
     }
@@ -49,4 +49,16 @@ class CarController
         $pdo = PDOUtils::getSharedInstance();
         $pdo->execSQL('UPDATE cars SET brand = ?, model = ?, kilometrage = ?, description = ?, vitesse = ?, year = ?, image = ?, idOwner = ? WHERE id = ?', [$car->getBrand(), $car->getmodel(), $car->getKilometrage(), $car->getDescription(), $car->getVitesse(), $car->getYear(), $car->getImage(), $car->getIdOwner(), $car->getId()]);
     }
+
+    public static function searchCar($searchTerm)
+    {
+        $pdo = PDOUtils::getSharedInstance();
+        $result = $pdo->requestSQL('SELECT * FROM cars WHERE brand LIKE ? OR model LIKE ? OR description LIKE ?', ["%$searchTerm%", "%$searchTerm%", "%$searchTerm%"]);
+        $cars = [];
+        foreach ($result as $car) {
+            $cars[] = new Car($car['id'], $car['brand'], $car['model'], $car['kilometrage'], $car['description'], $car['vitesse'], $car['year'], $car['image'], $car['idOwner'], $car['id'], $car['prix'], $car['ville']);
+        }
+        return $cars;
+    }
+    
 }

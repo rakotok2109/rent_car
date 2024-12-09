@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <header class="header">
@@ -15,7 +15,7 @@
                 <ul>
                     <li><a href="#">Réserver</a></li>
                     <li><a href="#">Nos Voitures</a></li>
-                    <li><a href="#">Comment ça marche ?</a></li>
+                    <li><a href="/pages/faq.php">FAQ ?</a></li>
                     <li><a href="#">Support</a></li>
                 </ul>
             </nav>

@@ -1,6 +1,5 @@
 
 <?php
-//  Class model for Car with attributr id, brand , model, kilometrage, description, vitesse, year, image and idOwner 
 class Car
 {
     private $id;
@@ -12,8 +11,10 @@ class Car
     private $year;
     private $image;
     private $idOwner;
+    private $prix;
+    private $ville;
 
-    public function __construct($id = null, $brand, $model, $kilometrage, $description, $vitesse, $year, $image, $idOwner = null)
+    public function __construct($id = null, $brand, $model, $kilometrage, $description, $vitesse, $year, $image, $idOwner = null, $prix, $ville)
     {
         $this->id = $id;
         $this->brand = $brand;
@@ -24,6 +25,8 @@ class Car
         $this->year = $year;
         $this->image = $image;
         $this->idOwner = $idOwner;
+        $this->prix = $prix;
+        $this->ville = $ville;
     }
 
     public function getId()
@@ -102,5 +105,21 @@ class Car
     public function setIdOwner($idOwner)
     {
         $this->idOwner = $idOwner;
+    }
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+    }
+    public function getVille()
+    {
+        return $this->ville;
+    }
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
     }
 }

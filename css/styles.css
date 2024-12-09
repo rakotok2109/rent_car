@@ -39,12 +39,14 @@ button:hover {
   top: 0;
   margin-bottom: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between !important;
   align-items: center;
 }
 .navbar-container .logo {
+  color: #ffffff;
   font-size: 24px;
   font-weight: bold;
+  margin-right: 16px;
 }
 .navbar-container .navbar {
   display: flex;
@@ -55,6 +57,11 @@ button:hover {
 .navbar-container .navbar ul {
   display: flex;
   gap: 20px;
+  text-decoration: none !important;
+  margin-right: 16px;
+}
+.navbar-container .navbar ul li {
+  list-style: none;
 }
 .navbar-container .navbar ul li a {
   color: #ffffff;
@@ -108,6 +115,57 @@ label {
   color: #8d8d8d;
   font-weight: bold;
   margin-bottom: 4px;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 260px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.card .card-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.card .card-content h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #08323D;
+  margin-bottom: 8px;
+}
+.card .card-content p {
+  font-size: 0.875rem;
+  color: #4a5568;
+  margin-bottom: 4px;
+}
+.card .card-content .book-now {
+  background-color: #00d876;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-top: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.card .card-content .book-now:hover {
+  background-color: #003f22;
 }
 
 .container-subscribe {
@@ -196,11 +254,173 @@ label {
   }
 }
 
+.homepage .cars {
+  margin-top: 0;
+  margin-bottom: 4px;
+  background-color: #08323D;
+}
+.homepage .cars .carsContainer {
+  margin: 15% 10%;
+  padding: 16px;
+}
+.homepage .cars .carsContainer h2 {
+  text-align: center;
+  color: #ffffff;
+}
+.homepage .cars .carsContainer hr {
+  color: #ffffff;
+}
+
 .errorDiv {
   background-color: #dc2626;
   padding: 0.5rem;
   border-radius: 0.25rem;
   margin-top: 1rem;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px 0;
+  gap: 56px;
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.callToAction {
+  background-color: #ffffff;
+  padding: 40px 0;
+}
+
+.callToActionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between !important;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  gap: 56px;
+}
+
+.callToActionContainer .image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.callToActionContainer content {
+  flex: 1;
+  text-align: left;
+}
+
+.callToActionContainer .content h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #08323D;
+  margin-bottom: 20px;
+}
+
+.callToActionContainer .content p {
+  font-size: 1rem;
+  color: #395b64;
+  margin-bottom: 24px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 28px;
+}
+
+.action-buttons .btn {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.action-buttons .primary {
+  background-color: #08323D;
+  color: #fff;
+}
+
+.action-buttons .primary:hover {
+  background-color: #395b64;
+  color: #fff;
+}
+
+.action-buttons .secondary {
+  background-color: #cccccc;
+  color: #08323D;
+}
+
+.action-buttons .secondary:hover {
+  background-color: #cbd5e0;
+}
+
+.faq {
+  padding-top: 40px 4px;
+  margin-bottom: 40px;
+}
+.faq .zoneTitre {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.faq .zoneTitre h1 {
+  font-weight: semibold;
+}
+.faq .zoneTitre .line {
+  width: 60px;
+  height: 4px;
+  background-color: #08323D;
+  margin: 12px auto 20px auto;
+}
+.faq .questions-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq .questions-container .question {
+  border-bottom: 1px solid #08323D;
+}
+.faq .questions-container .question #questionButton {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #000000 !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+.faq .questions-container .question #questionButton .d-arrow {
+  transition: transform 0.5s ease-in;
+  color: #214750;
+}
+.faq .questions-container .question #questionButton .d-arrow.rotate {
+  transform: rotate(180deg);
+}
+.faq .questions-container .question p {
+  font-size: 16px;
+  max-height: 0;
+  opacity: 0;
+  line-height: 1.5;
+  overflow: hidden;
+  transition: all 0.6s ease;
+}
+.faq .questions-container .question p.show {
+  max-height: 600px;
+  opacity: 1;
+  padding: 0px 15px 30px 15px;
 }
 
 .container {

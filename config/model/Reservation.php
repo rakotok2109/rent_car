@@ -28,7 +28,7 @@ class Reservation {
         return $this->etat;
     }
 
-    public function setEtat()
+    public function setEtat($etat)
     {
         $this->etat = $etat;
     }
@@ -38,7 +38,7 @@ class Reservation {
         return $this->loueur;
     }
 
-    public function setLoueur()
+    public function setLoueur($loueur)
     {
         $this->loueur = $loueur;
     }
@@ -48,27 +48,27 @@ class Reservation {
         return $this->locataire;
     }
 
-    public function setLocataire()
+    public function setLocataire($locataire)
     {
         $this->locataire = $locataire;
     }
 
     public function getDate_Depart()
     {
-        return $this->date_depart = $date_depart;
+        return $this->date_depart;
     }
 
-    public function setDate_Depart()
+    public function setDate_Depart($date_depart)
     {
         $this->date_depart = $date_depart;
     }
 
     public function getDate_Retour()
     {
-        return $this->date_retour = $date_retour;
+        return $this->date_retour ;
     }
 
-    public function setDate_Retour()
+    public function setDate_Retour($date_retour)
     {
         $this->date_retour = $date_retour;
     }

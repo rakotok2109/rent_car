@@ -1,6 +1,9 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
 .image {
     position: relative;
-    margin-top: 20px;
+    margin-top: $margin-unit*5;
     
 // Reduire la taille de l'image sur petit écran
     @media screen and (max-width: 600px) {
@@ -34,4 +37,32 @@
         height: 250px;
         top: 40%;
     }
+}
+
+// Other Styles on home page
+.homepage{
+    .cars{
+        margin-top: 0;
+        margin-bottom: $margin-unit;
+        background-color: $primary-color;
+    
+        .carsContainer{
+            margin: 15% 10%;
+            padding: $padding-unit*4;
+            h2{
+                text-align: center;
+                color: $white-color;
+            }
+    
+            hr{
+               
+                color: $white-color;
+    
+    
+            }
+        }
+
+      
+    }
+
 }

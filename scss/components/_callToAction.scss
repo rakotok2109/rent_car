@@ -1,0 +1,76 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+.callToAction {
+    background-color: $white-color;
+    padding: $padding-unit*10 0;
+}
+
+.callToActionContainer {
+    @include flex-center;
+   
+    justify-content: space-between !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $padding-unit*4;
+    gap: $gap*4;
+}
+
+.callToActionContainer .image img {
+    max-width: 100%;
+    border-radius: $border-radius*2;
+}
+
+.callToActionContainer content {
+    flex: 1;
+    text-align: left;
+}
+
+.callToActionContainer .content h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $primary-color;
+    margin-bottom: $margin-unit*5;
+}
+
+.callToActionContainer .content p {
+    font-size: 1rem;
+    color: lighten-color($primary-color, 20%);
+    margin-bottom: $margin-unit*6;
+}
+
+.action-buttons {
+    display: flex;
+    gap: $gap*2;
+}
+
+.action-buttons .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: $border-radius*2;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.action-buttons  .primary {
+    background-color: $primary-color;
+    color: #fff;
+}
+.action-buttons  .primary:hover {
+    background-color: lighten-color($primary-color, 20%);
+    color: #fff;
+}
+
+
+
+.action-buttons  .secondary {
+    background-color: darken-color($white-color, 20%);
+    color: $primary-color;
+}
+
+.action-buttons  .secondary:hover {
+    background-color: #cbd5e0;
+}

@@ -45,9 +45,27 @@
             color: #4a5568;
             margin-bottom: $margin-unit;
         }
-
         .book-now {
             background-color: $accent-color; 
+            color: $white-color;
+            font-size: 0.875rem;
+            font-weight: bold;
+            padding: $padding-unit*2 $padding-unit*4;
+            border-radius: $border-radius*2;
+            margin-top: auto; // Modification pour positionner le bouton au bas de la carte
+            text-decoration: none;
+            transition: background-color 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken($color: $accent-color, $amount: 30%);
+            }
+        }
+    
+        
+
+        .notAvailable {
+            background-color: $error-color; 
             color: $white-color;
             font-size: 0.875rem;
             font-weight: bold;
@@ -56,10 +74,11 @@
             margin-top: $padding-unit*2;
             text-decoration: none;
             transition: background-color 0.3s;
-        }
-    
-        .book-now:hover {
-            background-color: darken($color: $accent-color, $amount: 30%);
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken($color: $error-color, $amount: 30%);
+            }
         }
     }
 

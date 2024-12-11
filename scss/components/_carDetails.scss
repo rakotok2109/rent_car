@@ -1,0 +1,115 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+.details{
+    margin: $margin-unit*4 auto;
+    .details_container1{
+        margin: 0 auto;
+        // max-width: 1200px;
+        padding: $padding-unit*8;
+        background-color: darken-color($white-color, 5%);
+        border-radius: $border-radius*2;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: $margin-unit*3;
+    
+        .row{
+            display: flex;
+         
+            width: 100%;
+    
+            .car-image{
+                width: 50%;
+                img {
+                    width:90%;
+                    height: auto;
+                    border-radius: $border-radius*2;
+                    object-fit: cover; // Permet d'adapter l'image sans distorsion.
+                }
+            }
+    
+            .car-details{
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: left;
+                text-align: left;
+                color: $primary-color;
+                form{
+                    text-align: left;
+                    justify-content: left;
+                    width: 100% !important;
+                    input{
+                        width: 100% !important;
+                    }
+                    button{
+                        justify-self: left;
+                    }
+                }
+            }
+        }
+    }
+    
+    .details_container2{
+        margin: 0 auto;
+        // max-width: 1200px;
+        padding: $padding-unit*8;
+        background-color: darken-color($white-color, 5%);
+        display: flex;
+        flex-direction: column;
+    
+        .text-center {
+            text-align: center;
+        }
+    
+        .detail-product {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); // Quatre colonnes de taille égale.
+            gap: $gap*4;
+            margin: $margin-unit*4 0;
+        
+            .col {
+                text-align: center;
+        
+                p {
+                    font-size: $font-family-base;
+                    margin: $margin-unit 0;
+                    color: $black-color;
+        
+                    &:first-child {
+                        font-weight: bold;
+                        color: $accent-color;
+                    }
+                }
+            }
+        }
+    
+        .detail-desc {
+            margin-top: $margin-unit*6;
+            justify-content: center;
+        
+            h3 {
+                font-size: $font-size-base*3;
+                font-weight: bold;
+                color: $accent-color;
+                margin-bottom: $margin-unit*3;
+            }
+        
+            p {
+                font-size: $font-size-base;
+                color: $black-color;
+                line-height: 1.8;
+                text-align: center;
+            }
+        }
+        
+    
+    
+    
+    }
+}
+
+
+
+
+

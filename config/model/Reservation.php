@@ -2,18 +2,16 @@
 
 class Reservation {
     private $id;
-    private $etat;
-    private $loueur;
-    private $locataire;
+    private $payment_id;
+    private $car_id;
     private $date_depart;
     private $date_retour;
 
-    public function __construct($id = null, $etat, $loueur, $locataire, $date_depart, $date_retour)
+    public function __construct($id = null, $payment_id, $car_id, $date_depart, $date_retour)
     {
         $this->id = $id;
-        $this->etat = $etat;
-        $this->loueur = $loueur;
-        $this->locataire = $locataire;
+        $this->payment_id = $payment_id;
+        $this->car_id = $car_id;
         $this->date_depart = $date_depart;
         $this->date_retour = $date_retour;
     }
@@ -23,54 +21,43 @@ class Reservation {
         return $this->id;
     }
 
-    public function getEtat()
+    public function getPaymentId()
     {
-        return $this->etat;
+        return $this->payment_id;
     }
 
-    public function setEtat($etat)
+    public function setPaymentId($payment_id)
     {
-        $this->etat = $etat;
+        $this->payment_id = $payment_id;
     }
 
-    public function getLoueur()
+    public function getCarId()
     {
-        return $this->loueur;
+        return $this->car_id;
     }
 
-    public function setLoueur($loueur)
+    public function setCarId($car_id)
     {
-        $this->loueur = $loueur;
+        $this->car_id = $car_id;
     }
 
-    public function getLocataire()
-    {
-        return $this->locataire;
-    }
-
-    public function setLocataire($locataire)
-    {
-        $this->locataire = $locataire;
-    }
-
-    public function getDate_Depart()
+    public function getDateDepart()
     {
         return $this->date_depart;
     }
 
-    public function setDate_Depart($date_depart)
+    public function setDateDepart($date_depart)
     {
         $this->date_depart = $date_depart;
     }
 
-    public function getDate_Retour()
+    public function getDateRetour()
     {
-        return $this->date_retour ;
+        return $this->date_retour;
     }
 
-    public function setDate_Retour($date_retour)
+    public function setDateRetour($date_retour)
     {
         $this->date_retour = $date_retour;
     }
-
 }

@@ -1,0 +1,31 @@
+// grid layout
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: $gap*2;
+    padding: $padding-unit*4;
+    margin: $margin-unit*4 auto;
+    justify-content: center; 
+    justify-items: center;
+    align-items: center;
+    max-width: 1200px; 
+    .card
+    {
+        width: 100% !important;
+        box-sizing: border-box;
+        height: 100%;
+        
+    }
+}
+
+.cars{
+    padding: $padding-unit*4;
+    margin: $margin-unit*4 0;
+
+    h1{
+        text-align: center;
+    }
+}

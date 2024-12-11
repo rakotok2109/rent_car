@@ -13,8 +13,9 @@ class Car
     private $idOwner;
     private $prix;
     private $ville;
+    private $disponibilite;
 
-    public function __construct($id = null, $brand, $model, $kilometrage, $description, $vitesse, $year, $image, $idOwner = null, $prix, $ville)
+    public function __construct($id = null, $brand, $model, $kilometrage, $description, $vitesse, $year, $image, $idOwner = null, $prix, $ville, $disponibilite=1)
     {
         $this->id = $id;
         $this->brand = $brand;
@@ -27,6 +28,7 @@ class Car
         $this->idOwner = $idOwner;
         $this->prix = $prix;
         $this->ville = $ville;
+        $this->disponibilite = $disponibilite;
     }
 
     public function getId()
@@ -121,5 +123,13 @@ class Car
     public function setVille($ville)
     {
         $this->ville = $ville;
+    }
+    public function getDisponibilite()
+    {
+        return $this->disponibilite;
+    }
+    public function setDisponibilite($disponibilite)
+    {
+        $this->disponibilite = $disponibilite;
     }
 }

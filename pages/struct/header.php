@@ -13,14 +13,17 @@
             <div class="logo">NN CAR</div>
             <nav class="navbar">
                 <ul>
-                    <li><a href="#">Réserver</a></li>
-                    <li><a href="#">Nos Voitures</a></li>
-                    <li><a href="/pages/faq.php">FAQ ?</a></li>
-                    <li><a href="#">Support</a></li>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/pages/cars">Nos Voitures</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">A Propos</a></li>
+                    <li><a href="/pages/faq.php">FAQ</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
-                <button class="btn">Connexion / Inscription</button>
+               
+                <a  href="/pages/auth/login.php"> <button class="btn"> Connexion / Inscription   </button></a>    
+             
             </div>
         </div>
     </header>
@@ -37,7 +40,7 @@
             </div>
             </div>
           
-            <div class="search-box">
+            <!-- <div class="search-box">
                 <form class="search-form">
                     <div class="label-input-container">
                         <label for="pickup">Pickup Location</label>
@@ -57,7 +60,7 @@
                     </div>
                     <button class="btn btn-primary" type="submit">Find a Car</button>
                 </form>
-            </div>
+            </div> -->
         </div>
     </section>
 

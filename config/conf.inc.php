@@ -16,3 +16,14 @@ $listOfSubscribeErrors =[
     10=> "Veuillez entrer un numéro de téléphone valide"
 
 ];
+
+$listOfLoginErrors = [
+    0=> "L'email ou le mot de passe est incorrect",
+    1=> "Une erreur est survenue lors de la connexion"
+]; 
+
+$listOfRentCarError = [
+    0=>"La date de prêt doit être antérieure à la date
+                                retour",
+    1=>"Les dates fournies sont invalides"
+];

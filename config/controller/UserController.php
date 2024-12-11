@@ -16,12 +16,18 @@ class UserController {
         $result = $pdo->requestSQL('SELECT * FROM users WHERE email = ?', [$email]);
         if ($_POST['email']) {
             if (password_verify($password, $result['password'])){
-                print('GOOD');
+                unset($result['password']);
+                $_SESSION['user'] = $result;
+                $_SESSION['user']['expiration'] = time() + 86400; // 86400 secondes = 1 jour
+                return;
+               
             } else {
-                print("Mot de passe incorrect");
+                $_SESSION['loginErreur'][] = 0;
+                return;
             }
         } else {
-            print("L'email renseigné est incorrect");
+            $_SESSION['loginErreur'][] = 0;
+                return;
         }
     }
 

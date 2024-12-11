@@ -112,43 +112,44 @@ margin: 0 !important;
             }
         }
 
-        .search-box {
-            margin: 10% 10%;
-            background-color: $white-color !important;
-            padding: $padding-unit*4;
-            border-radius: $border-radius*2;
-    
-            .search-form {
-               @include flex-row;
-                gap: $gap*2;
-                flex-wrap: wrap;
-    
-                .label-input-container {
-                    flex: 1;
-                    input {      
-                border-radius: 5px !important;
-                border: $border-weight $border-color !important;
-                   
-                    }
-                }
-                .btn-primary {
-                    background-color: $accent-color !important;
-                    border: none !important;
-                    padding: $padding-unit*2 $padding-unit*5 !important;
-                    color: $white-color !important;
-                   
-                    transition: background-color 0.3s !important;
-    
-                    &:hover {
-                        background-color: darken($accent-color, 10%) !important;
-                    }
-                }
-            }
-        }
+        
     }
 
    
    
+}
+.search-box {
+    margin: 10% 10%;
+    background-color: $white-color !important;
+    padding: $padding-unit*4;
+    border-radius: $border-radius*2;
+
+    .search-form {
+       @include flex-row;
+        gap: $gap*2;
+        flex-wrap: wrap;
+
+        .label-input-container {
+            flex: 1;
+            input {      
+        border-radius: 5px !important;
+        border: $border-weight $border-color !important;
+           
+            }
+        }
+        .btn-primary {
+            background-color: $accent-color !important;
+            border: none !important;
+            padding: $padding-unit*2 $padding-unit*5 !important;
+            color: $white-color !important;
+           
+            transition: background-color 0.3s !important;
+
+            &:hover {
+                background-color: darken($accent-color, 10%) !important;
+            }
+        }
+    }
 }
 
 

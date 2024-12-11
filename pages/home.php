@@ -13,6 +13,7 @@
 <body class="homepage">
     <!-- Header -->
     <?php include '../pages/struct/header.php'; ?>
+    <?php include '../pages/struct/searchForm.php'; ?>
 
     <!-- Section Voitures -->
     <section class="cars">

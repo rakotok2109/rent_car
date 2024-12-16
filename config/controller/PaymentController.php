@@ -80,18 +80,19 @@ public static function getPaymentById($id)
             return $payment;
         } else {
             // Aucune ligne trouvée pour cet ID
-            throw new Exception('Aucun paiement trouvé avec cet ID.');
+            // throw new Exception('Aucun paiement trouvé avec cet ID.');
+            return null;
         }
     } catch (PDOException $e) {
         // Gérer les erreurs de base de données
-        throw new Exception('Erreur de base de données : ' . $e->getMessage());
-        // echo 'Erreur de base de données : ' . $e->getMessage();
-        // return null; // Retournez null en cas d'échec
+        // throw new Exception('Erreur de base de données : ' . $e->getMessage());
+        echo 'Erreur de base de données : ' . $e->getMessage();
+        return null; // Retournez null en cas d'échec
     } catch (Exception $e) {
         // Gérer d'autres exceptions
-        throw new Exception('Erreur : ' . $e->getMessage());
-        // echo 'Erreur : ' . $e->getMessage();
-        // return null; // Retournez null en cas d'échec
+        // throw new Exception('Erreur : ' . $e->getMessage());
+        echo 'Erreur : ' . $e->getMessage();
+        return null; // Retournez null en cas d'échec
      
     }
 }

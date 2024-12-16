@@ -54,7 +54,15 @@ else if($_GET['id'] == 'login') {
     $result = UserController::login($_POST['email'], $_POST['password']);
     if($result) {
     //   echo $_SESSION['user']->getName();
+    $user= unserialize($_SESSION['user']);
+    if($user->getRole() != 1)
+    {
         header('Location: /pages/home.php');
+
+    }
+    else{
+        header('Location: /pages/admin/dashboard_home.php');
+    }
     }
     else {
         header('Location: /pages/auth/login.php');

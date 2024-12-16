@@ -57,7 +57,7 @@ class Reservation {
 
     public function getDateRetour()
     {
-        return $this->date_retour;
+        return new DateTime($this->date_retour);
     }
 
     public function setDateRetour($date_retour)

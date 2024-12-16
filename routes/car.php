@@ -1,5 +1,5 @@
 <?php
-require_once('../config/init.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');
 
 // Configuration pour retourner des réponses JSON
 header('Content-Type: application/json; charset=utf-8');

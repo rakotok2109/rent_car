@@ -15,17 +15,24 @@
 
 <?php include '../struct/header.php';?>
 <body>
-    <div class="form-container">
-        <form action="../../routes/verif.php?id=login" method="POST">
-            <label for="email"></label>
-            <input type="email" id="email" name="email"  placeholder="Email">
-        
-            <label for="mot_de_passe"></label>
-            <input type="password" id="password" name="password"  placeholder="Mot de passe"><br /></br />
-            
-            <input type="submit" value="Se connecter">
+    <div class="container-login">
+        <form class="container-form" action="../../routes/verif.php?id=login" method="POST">
+            <div class="content-form">     
+                <div class="label-input-container">
+                    <label class="label" for="email"></label>
+                    <input class="input" type="email" id="email" name="email"  placeholder="Email">
+                </div>
+
+                <div class="label-input-container">
+                    <label class="label" for="mot_de_passe"></label>
+                    <input class="input" type="password" id="password" name="password"  placeholder="Mot de passe"><br /></br />
+                </div>
+            </div>
+
+            <button type="submit" class="button">Se connecter</button>
         </form>
     </div>
+
     <?php include '../struct/footer.php';?>
 </body>
 </html>

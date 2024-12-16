@@ -37,7 +37,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php'); // Inclure la con
                             </a></li>
                         <li><a href="../../routes/verif.php?id=logout">Déconnexion</a></li>
                     <?php else : ?>
-                        <li><a href="../pages/auth/login.php">Se connecter</a></li>
+                        <li><a href="/pages/auth/login.php">Se connecter</a></li>
                     <?php endif; ?>
                 </ul>
             </nav>

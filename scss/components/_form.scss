@@ -20,6 +20,23 @@
 
 }
 
+.container-login {
+    @include flex-center;
+    @include flex-row;
+
+
+    background-color: $primary-color !important;
+  
+    padding: 20px;
+
+    @media screen and (max-width: 768px) {
+        @include flex-column-reverse;
+        
+    }
+    color: white;
+
+}
+
 
 .form-title{
     font-size: $font-size-base*2;

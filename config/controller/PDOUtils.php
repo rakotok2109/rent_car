@@ -47,5 +47,10 @@ class PDOUtils {
             return false;
            
         }
+
+        public function lastInsertId() {
+            return $this->pdo_->lastInsertId();
+        }
+    
       
 }

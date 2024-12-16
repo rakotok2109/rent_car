@@ -28,7 +28,6 @@ $result = $pdo->requestSQL($sql, $params);
     
 
     // Récupère l'ID du paiement inséré
-    var_dump($pdo->lastInsertId());
     $lastInsertId = $pdo->lastInsertId(); // Récupère l'ID de la dernière insertion
     $insertedPaymentData = PaymentController::getPaymentById($lastInsertId);
     

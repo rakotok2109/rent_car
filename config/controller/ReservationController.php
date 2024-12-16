@@ -45,14 +45,22 @@ class ReservationController
         $reservation = new Reservation(null,$payment->getId(),$car->getId(),$pickup_date->format('Y-m-d'),$dropoff_date->format('Y-m-d'));
 
         $pdo = PDOUtils::getSharedInstance();
-        $reservation_inserted = $pdo->requestSQL('INSERT INTO reservations( payment_id, car_id, date_depart, date_retour) VALUES(?,?,?,?)',[(int)$reservation->getPaymentId(),(int)$reservation->getCarId(),$reservation->getDateDepart(),$reservation->getDateRetour()]); 
-        $reservation->setId($reservation_inserted[0]['id_order']);
+        $pdo->requestSQL('INSERT INTO reservations( payment_id, car_id, date_depart, date_retour) VALUES(?,?,?,?)',[(int)$reservation->getPaymentId(),(int)$reservation->getCarId(),$reservation->getDateDepart(),$reservation->getDateRetour()]); 
+       
+        $reservation_inserted =ReservationController::getReservationById($pdo->lastInsertId());
+       
+        $reservation->setId($reservation_inserted['id_order']);
 
 
         // Création d'une entrée dans CarReturn liée à la commande
-        CarReturnController::addCarReturn($reservation->getId());
+      $result =  CarReturnController::addCarReturn($reservation->getId());
 
-       return true;
+      if($result){
+          return true;
+        }
+        return false;
+
+
         }catch(Exception $e){
             throw new Exception($e->getMessage());
             $_SESSION['reservationErreur'][] = 3;
@@ -111,7 +119,7 @@ class ReservationController
      //Récupérer une réservation par son id
      public static function getReservationById($id) {
         $pdo = PDOUtils::getSharedInstance();
-        $reservation = $pdo->requestSQL('SELECT * FROM reservations WHERE id =?',[$id])[0];
+        $reservation = $pdo->requestSQL('SELECT * FROM reservations WHERE id_order =?',[$id])[0];
         return $reservation;
      }
      //Récupérer toutes les réservations

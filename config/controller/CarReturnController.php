@@ -9,7 +9,7 @@ class CarReturnController
     public static function addCarReturn ($reservation_id)
     {
         $pdo = PDOUtils::getSharedInstance();
-     $result=   $pdo->execSQL('INSERT INTO car_returns (reservation_id, date_of_return, validate_return) VALUES (?, ?, ?)', [$reservation_id, null, false]);
+     $result=   $pdo->execSQL('INSERT INTO car_returns (reservation_id, date_of_return, validate_return) VALUES (?, ?, ?)', [$reservation_id, null, 0]);
 
      return $result;
 

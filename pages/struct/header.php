@@ -24,7 +24,7 @@ require_once('../config/init.php'); // Inclure la configuration
                     <li><a href="../pages/cars.php">Nos Voitures</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">A Propos</a></li>
-                    <li><a href="/pages/faq.php">FAQ</a></li>
+                    <li><a href="../pages/faq.php">FAQ</a></li>
                     <?php if (isset($_SESSION['user'])) :
                         $user = unserialize($_SESSION['user']);
                         ?>

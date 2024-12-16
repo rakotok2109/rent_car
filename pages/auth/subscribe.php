@@ -1,5 +1,5 @@
 <?php 
-require_once  '../config/init.php'
+// require_once('../../config/init.php');
  
 ?>
 
@@ -8,10 +8,10 @@ require_once  '../config/init.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-    <!-- <?php include 'header.php'; ?>  -->
+   <?php include '../struct/header.php'; ?>  
 
     <div class="container-subscribe">
         <div>
@@ -37,7 +37,7 @@ require_once  '../config/init.php'
         ?>
         </div>
 
-        <form class="container-form" action="../utils/verif.php?id=subscribe"
+        <form class="container-form" action="../../routes/verif.php?id=subscribe"
                         method="post">
                         <div class="content-form">
                             <div class="label-input-container">
@@ -93,13 +93,13 @@ require_once  '../config/init.php'
 
                 <div class="image">
                 <div class="circle"></div>
-                <img src="../images/ressources/carOnSubscribeForm.png" alt="=Voiture"/>
+                <img src="../../images/ressources/carOnSubscribeForm.png" alt="=Voiture"/>
             </div>
 
 
     </div>
 
-  
+    <?php include '../struct/footer.php';?>
         
 </body>
 

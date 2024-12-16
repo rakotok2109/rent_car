@@ -25,5 +25,12 @@ $listOfLoginErrors = [
 $listOfRentCarError = [
     0=>"La date de prêt doit être antérieure à la date
                                 retour",
-    1=>"Les dates fournies sont invalides"
+    1=>"Les dates fournies sont invalides",
+    2=>"Le nombre de places disponibles pour cette voiture est insuffisant",
+    3=>"Une erreur est survenue lors de la demande de location",
+    4=>"Veuillez entrer une date de prêt valide",
+    5=>"Veuillez entrer une date de retour valide",
+    6=>"Veuillez choisir une voiture",
 ];
+
+?>

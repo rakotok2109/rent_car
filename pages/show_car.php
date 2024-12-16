@@ -13,30 +13,52 @@
     <session class="details">
         <?php include '../pages/struct/header.php'; ?>
         <?php
-        require_once '../config/init.php';
-        if (isset($_GET['id'])) {
-            $car_id = $_GET['id'];
-
-            $car = CarController::getCarById($car_id);
-        } else {
-            echo "Car not found";
-            exit();
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');
+if (isset($_GET['id'])) {
+    $car_id = $_GET['id'];
+    $car = CarController::getCarById($car_id);
+    if ($car) {
+        $car_data = $car->jsonSerialize();
+        if ($car_data) {
+            $carJson = json_encode($car_data);
+        
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                echo 'Erreur lors de la conversion en JSON : ' . json_last_error_msg();
+                var_dump($car_data); // Affichez les données pour comprendre le problème
+                exit();
+            }
         }
-
-        ?>
+    } else {
+        echo "Car not found";
+        exit();
+    }
+} else {
+    echo "Car not found";
+    exit();
+}
+?>
         <div class="details_container1">
             <div class="card_details">
                 <div class="row">
                     <div class="car-image">
                         <img src="../images/Vehicules/<?php echo $car->getImage() ?>" alt="<?php echo $car->getBrand() . ' ' . $car->getModel() ?>">
+                        
                     </div>
                     <div class="car-details">
                         <h1><?php echo htmlspecialchars($car->getBrand() . ' ' .  $car->getmodel())  ?></h1>
                         <p class="price">€ <?php echo htmlspecialchars($car->getPrix()); ?>/jour</p>
-                        <p class="ville">Ville limite: <?php echo !empty($car->getVille()) ? htmlspecialchars(mb_convert_encoding($car->getVille(), 'UTF-8', 'ISO-8859-1')) : 'Non spécifié'; ?></p>
-                        <form action="add_order.php" method="post">
-                            <input type="hidden" name="car" value="<?php echo htmlspecialchars(json_encode($car)); ?>">
-                            <div class="label-input-container">
+                        <p class="ville">Ville limite: <?php echo !empty($car->getVille()) ? htmlspecialchars($car->getVille()) : 'Non spécifié'; ?></p>
+                        <form action="../routes/reservation.php" method="post">
+<?php 
+if (!empty($carJson)) {
+    echo '<input type="hidden" name="car" value="' . htmlspecialchars($carJson) . '">';
+} else {
+    echo 'Erreur : Les données du véhicule ne sont pas disponibles.';
+    exit();
+}
+?>
+
+<div class="label-input-container">
                                 <label for="pickup-date" class="label">Date Emprunt</label>
                                 <input type="date" name="pickup-date" class="form-control" id="pickup-date" required>
                             </div>
@@ -50,7 +72,7 @@
                             echo '<div class="errorDiv">';
 
                             echo '<ul>';
-
+                            
                             foreach ($_SESSION['reservationErreur'] as $error) {
                                 echo '<li>' . htmlspecialchars($listOfRentCarError[$error]) . '</li>';
                             }
@@ -90,7 +112,8 @@
                 <div class="detail-desc">
                     <h3 class="text-center">Description</h3>
                     <p class="text-center">
-                        <?php echo htmlspecialchars($car->getDescription());?>
+                        <?php echo                         htmlspecialchars($car->getDescription())
+;?>
                     
                     <!-- Cette voiture offre une variété de fonctionnalités possibles
                     Une expérience de conduite confortable, sûre et sophistiquée.Avec un design moderne et

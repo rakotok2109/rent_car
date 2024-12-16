@@ -44,7 +44,7 @@
                                 <p>Kilométrage : " . htmlspecialchars($car->getKilometrage()) . " km</p>
                                 <p>Vitesse : " . ($car->getVitesse() ? 'Manuelle' : 'Automatique') . "</p>
                                 <p>Année : " . htmlspecialchars($car->getYear()) . "</p>
-                                   <a href='#' class='book-now'>Réserver maintenant</a>
+                                   <a href='../pages/show_car.php?id=".htmlspecialchars($car->getId()) ."' class='book-now'>Réserver maintenant</a>
                             </div>
                         </div>
                         ";

@@ -17,6 +17,7 @@ class User {
         $this->email_ = strtolower(trim($email));
         $this->password_ = $password;
         $this->role_ = $role;
+        $this->id_ = (int)$id;
     }
 
     public function getId() {

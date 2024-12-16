@@ -1,6 +1,6 @@
 
 <?php
-class Car
+class Car implements JsonSerializable
 {
     private $id;
     private $brand;
@@ -131,5 +131,23 @@ class Car
     public function setDisponibilite($disponibilite)
     {
         $this->disponibilite = $disponibilite;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'brand' => $this->brand,
+           'model' => $this->model,
+            'kilometrage' => $this->kilometrage,
+            'description' => $this->description,
+            'vitesse' => $this->vitesse,
+            'year' => $this->year,
+            'image' => $this->image,
+            'idOwner' => $this->idOwner,
+            'prix' => $this->prix,
+            'ville' => $this->ville,
+            'disponibilite' => $this->disponibilite
+        ];
     }
 }

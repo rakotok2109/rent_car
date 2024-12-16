@@ -1,6 +1,7 @@
 <?php 
 
-require_once("../config/init.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');
+
 
 class UserController {
     public static function subscribe (User $user)
@@ -12,23 +13,31 @@ class UserController {
     }
 
     public static function login($email, $password) {
-        $pdo = PDOUtils::getSharedInstance();
-        $result = $pdo->requestSQL('SELECT * FROM users WHERE email = ?', [$email]);
-        if ($_POST['email']) {
-            if (password_verify($password, $result['password'])){
-                unset($result['password']);
-                $_SESSION['user'] = $result;
-                $_SESSION['user']['expiration'] = time() + 86400; // 86400 secondes = 1 jour
-                return;
-               
+        try{
+            $pdo = PDOUtils::getSharedInstance();
+            $result = $pdo->requestSQL('SELECT * FROM users WHERE email = ?', [$email]);
+            if ($_POST['email']) {
+                if (password_verify($password, $result[0]['password'])){
+                  
+                    $user = new User($result[0]['nom'], $result[0]['prenom'], $result[0]['phone'], $result[0]['email'], null, $result[0]['role'], $result[0]['id']);
+                  
+                    $_SESSION['user'] = serialize($user);
+                    $_SESSION['user_expiration'] = time() + 86400; // 86400 secondes = 1 jour
+                    return true;
+                   
+                } else {
+                    $_SESSION['loginErreur'][] = 0;
+                    return false;
+                }
             } else {
                 $_SESSION['loginErreur'][] = 0;
-                return;
+                    return false;
             }
-        } else {
-            $_SESSION['loginErreur'][] = 0;
-                return;
         }
+        catch(PDOException $e){
+            die($e->getMessage());
+        }
+       
     }
 
 

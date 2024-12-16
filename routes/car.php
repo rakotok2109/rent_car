@@ -30,13 +30,17 @@ try {
             $car = new Car(
                 null,
                 $_POST['brand'],
+
                 $_POST['model'],
                 $_POST['kilometrage'],
                 $_POST['description'],
                 $_POST['vitesse'],
                 $_POST['year'],
                 $_POST['image'],
-                $_POST['user_id']
+                $_POST['user_id'],
+                $_POST['prix'],
+                $_POST['ville'],
+                $_POST['disponibilite'] = 1 // Par défaut, les voitures sont disponibles
             );
             $result = CarController::addCar($car);
             echo json_encode(["success" => $result]);
@@ -55,6 +59,9 @@ try {
                     $car->setYear($putData['year']);
                     $car->setImage($putData['image']);
                     $car->setIdOwner($putData['user_id']);
+                    $car->setPrix($putData['prix']);
+                    $car->setVille($putData['ville']);
+                    $car->setDisponibilite($putData['disponibilite']);
                     $result = CarController::updateCar($car);
                     echo json_encode(["success" => $result]);
                 } else {

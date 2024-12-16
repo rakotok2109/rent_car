@@ -42,28 +42,28 @@ if($_GET['id'] == 'subscribe') {
     else{
 
         UserController::subscribe($user);
-        // header('Location: /');
+        header('Location: /');
     
     }
 
    
    
-    // header('Location: /');
+    header('Location: /');
 }
-// else if($_GET['id'] == 'login') {
-//     $user = UserController::login($_POST['email'], $_POST['password']);
-//     if($user) {
-//         $_SESSION['user'] = $user;
-//         header('Location: /');
-//     }
-//     else {
-//         header('Location: /?error=1');
-//     }
-// }
-// else if($_GET['id'] == 'logout') {
-//     unset($_SESSION['user']);
-//     header('Location: /');
-// }
-// else {
-//     header('Location: /');
-// }
+else if($_GET['id'] == 'login') {
+    $result = UserController::login($_POST['email'], $_POST['password']);
+    if($result) {
+    //   echo $_SESSION['user']->getName();
+        header('Location: /pages/home.php');
+    }
+    else {
+        header('Location: /pages/auth/login.php');
+    }
+}
+else if($_GET['id'] == 'logout') {
+    unset($_SESSION['user']);
+    header('Location: /pages/home.php');
+}
+else {
+    header('Location: /pages/home.php');
+}

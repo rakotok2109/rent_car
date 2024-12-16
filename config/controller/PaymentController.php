@@ -1,5 +1,5 @@
 <?php
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/rent_car/config/init.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');
 
 class PaymentController
 {

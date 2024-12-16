@@ -1,5 +1,5 @@
 <?php
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/rent_car/config/init.php'); // Inclure la configuration
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php'); // Inclure la configuration
 
 
 ?>
@@ -20,11 +20,11 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/rent_car/config/init.php'); // Inclu
             <div class="logo">NN CAR</div>
             <nav class="navbar">
                 <ul>
-                    <li><a href="../home.php">Accueil</a></li>
-                    <li><a href="../pages/cars.php">Nos Voitures</a></li>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/pages/cars.php">Nos Voitures</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">A Propos</a></li>
-                    <li><a href="../pages/faq.php">FAQ</a></li>
+                    <li><a href="/pages/faq.php">FAQ</a></li>
                     <?php if (isset($_SESSION['user'])) :
                         $user = unserialize($_SESSION['user']);
                         ?>
@@ -53,7 +53,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/rent_car/config/init.php'); // Inclu
             </div>
             <div class="car-image">
                 <div class="cercle"></div>
-                <img src="../../images/ressources/carOnSubscribeForm.png" alt="=Voiture"/>
+                <img src="/images/ressources/carOnSubscribeForm.png" alt="=Voiture"/>
             </div>
             </div>
           

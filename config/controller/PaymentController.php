@@ -1,5 +1,5 @@
 <?php
-require_once ('../../config/init.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/rent_car/config/init.php');
 
 class PaymentController
 {
@@ -144,7 +144,7 @@ public static function getPaymentById($id)
         $filename =time(). 'reçu' .uniqid(). '-'. $payment_receipt->getClientOriginalName();
 
         // Stocker le fichier dans le système de fichiers (dans le dossier storage/receipts)
-        $payment_receipt->storeAs('../../storage/receipts', $filename);
+        $payment_receipt->storeAs($_SERVER['DOCUMENT_ROOT'] . '/rent_car/storage/receipts', $filename);
 
         // Met à jour le chemin du reçu de paiement dans la base de données
         $payment = PaymentController::getPaymentById($reservation->getPaymentId());

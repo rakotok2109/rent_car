@@ -1,5 +1,5 @@
 <?php
-require_once('../../config/init.php'); // Inclure la configuration
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/rent_car/config/init.php'); // Inclure la configuration
 
 
 ?>
@@ -20,7 +20,7 @@ require_once('../../config/init.php'); // Inclure la configuration
             <div class="logo">NN CAR</div>
             <nav class="navbar">
                 <ul>
-                    <li><a href="/">Accueil</a></li>
+                    <li><a href="../home.php">Accueil</a></li>
                     <li><a href="../pages/cars.php">Nos Voitures</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">A Propos</a></li>
@@ -53,7 +53,7 @@ require_once('../../config/init.php'); // Inclure la configuration
             </div>
             <div class="car-image">
                 <div class="cercle"></div>
-                <img src="../images/ressources/carOnSubscribeForm.png" alt="=Voiture"/>
+                <img src="../../images/ressources/carOnSubscribeForm.png" alt="=Voiture"/>
             </div>
             </div>
           

@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/config/init.php'); // Inclure la configuration
+require_once('../config/init.php'); // Inclure la configuration
 
 
 ?>

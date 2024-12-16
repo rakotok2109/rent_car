@@ -1,6 +1,6 @@
 <?php
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');
+require_once ('../config/init.php');
 
 class ReservationController 
 {

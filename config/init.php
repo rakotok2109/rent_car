@@ -8,17 +8,17 @@ if (isset($_SESSION['user']) && time() > $_SESSION['user']['expiration']) {
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/conf.inc.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/controller/PDOUtils.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/controller/UserController.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/model/User.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/model/Car.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/model/CarReturn.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/controller/CarController.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/model/Reservation.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/controller/ReservationController.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/model/Payment.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/controller/PaymentController.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/controller/CarReturnController.php');
+require_once ('../config/conf.inc.php');
+require_once ('../config/controller/PDOUtils.php');
+require_once ('../config/controller/UserController.php');
+require_once ('../config/model/User.php');
+require_once ('../config/model/Car.php');
+require_once ('../config/model/CarReturn.php');
+require_once ('../config/controller/CarController.php');
+require_once ('../config/model/Reservation.php');
+require_once ('../config/controller/ReservationController.php');
+require_once ('../config/model/Payment.php');
+require_once ('../config/controller/PaymentController.php');
+require_once ('../config/controller/CarReturnController.php');
 
 ?>

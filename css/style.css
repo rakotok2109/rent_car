@@ -90,11 +90,11 @@ button:hover {
   border-color: #FF0000;
 }
 
-.role-choices label {
+.choices label {
   color: #D5FD05;
 }
 
-.role-choices .radio {
+.choices .radio {
   appearance: none; /* Supprime l'apparence par défaut */
   width: 20px; /* Largeur du carré */
   height: 20px; /* Hauteur du carré */
@@ -105,7 +105,7 @@ button:hover {
   cursor: pointer; /* Change le curseur au survol */
 }
 
-.role-choices .radio:checked {
+.choices .radio:checked {
   background-color: #D5FD05; /* Couleur de fond lorsque sélectionné */
 }
 
@@ -184,7 +184,7 @@ label {
   background-color: #660000;
 }
 
-.container-subscribe {
+.container-main-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,13 +195,13 @@ label {
   color: white;
 }
 @media screen and (max-width: 768px) {
-  .container-subscribe {
+  .container-main-form {
     display: flex;
     flex-direction: column-reverse;
   }
 }
 
-.container-login {
+.container-main-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -212,7 +212,7 @@ label {
   color: white;
 }
 @media screen and (max-width: 768px) {
-  .container-login {
+  .container-main-form {
     display: flex;
     flex-direction: column-reverse;
   }
@@ -566,6 +566,151 @@ label {
   color: #000000;
   line-height: 1.8;
   text-align: center;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background: #ffffff;
+  z-index: 2000;
+  font-family: "Arial, sans-serif, roboto";
+  transition: 0.3s ease;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+#sidebar::-webkit-scrollbar {
+  display: none;
+}
+#sidebar li {
+  list-style: none;
+}
+#sidebar a {
+  text-decoration: none;
+  color: #000000 !important;
+  transition: color 0.3s ease;
+}
+#sidebar a:hover {
+  color: rgb(19.8260869565, 123.9130434783, 151.1739130435);
+}
+#sidebar .active {
+  color: #00d876;
+}
+#sidebar .brand {
+  font-size: 28px;
+  font-weight: 700;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  color: #08323D;
+  background: #F9F9F9;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+#sidebar .brand .icon {
+  min-width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sidebar .side-menu {
+  width: 100%;
+  margin-top: 40px;
+}
+#sidebar .side-menu li {
+  height: 48px;
+  margin-left: 4px;
+  border-radius: 48px 0 0 48px;
+  padding: 4px;
+}
+#sidebar .side-menu li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #F9F9F9;
+  font-size: 16px;
+  white-space: nowrap;
+}
+#sidebar .side-menu li a:hover {
+  color: rgb(19.8260869565, 123.9130434783, 151.1739130435);
+}
+#sidebar .side-menu li a .icon {
+  min-width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sidebar .side-menu li a.logout {
+  color: #FF0000;
+}
+#sidebar .side-menu li.active {
+  background-color: rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+#sidebar .side-menu li.active::before, #sidebar .side-menu li.active::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  right: 0;
+  z-index: -1;
+}
+#sidebar .side-menu li.active::before {
+  top: -40px;
+  box-shadow: 20px 20px 0 rgba(255, 255, 255, 0.8);
+}
+#sidebar .side-menu li.active::after {
+  bottom: -40px;
+  box-shadow: 20px -20px 0 #808080;
+}
+#sidebar .side-menu li.active a {
+  color: #08323D;
+}
+
+#sidebar.hide {
+  width: 60px;
+}
+
+#content-sidebar nav {
+  height: 56px;
+  background: #F9F9F9;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+#content-sidebar nav::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: -40px;
+  left: 0;
+  border-radius: 50%;
+  box-shadow: -20px -20px 0 #F9F9F9;
+}
+#content-sidebar nav a {
+  color: #000000;
+}
+#content-sidebar nav .icon {
+  min-width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.texte {
+  color: #08323D;
 }
 
 .container {

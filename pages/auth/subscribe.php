@@ -13,7 +13,7 @@
 <body>
    <?php include '../struct/header.php'; ?>  
 
-    <div class="container-subscribe">
+    <div class="container-main-form">
         <div>
         <div >
         <h3 class="form-title">Louer les meilleures voitures sur Car Showcase</h3>
@@ -75,7 +75,7 @@
                         </div>
                    
 
-                    <div class="role-choices">
+                    <div class="choices">
                         <input type="radio" id="loueur" name="role" value=1
                             class="radio">
                         <label for="loueur">Loueur</label>

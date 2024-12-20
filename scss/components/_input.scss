@@ -31,12 +31,12 @@ border: none;
 }
 
 
-.role-choices label{
+.choices label{
     color: $secondary-color;
 }
 
 
-.role-choices .radio {
+.choices .radio {
     appearance: none; /* Supprime l'apparence par défaut */
     width: 20px; /* Largeur du carré */
     height: 20px; /* Hauteur du carré */
@@ -47,7 +47,7 @@ border: none;
     cursor: pointer; /* Change le curseur au survol */
 }
 
-.role-choices .radio:checked {
+.choices .radio:checked {
     background-color: $secondary-color; /* Couleur de fond lorsque sélectionné */
 }
 

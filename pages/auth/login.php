@@ -15,7 +15,7 @@
 
 <?php include '../struct/header.php';?>
 <body>
-    <div class="container-login">
+    <div class="container-main-form">
         <form class="container-form" action="../../routes/verif.php?id=login" method="POST">
             <div class="content-form">     
                 <div class="label-input-container">

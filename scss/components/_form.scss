@@ -3,7 +3,7 @@
 
 
 
-.container-subscribe {
+.container-main-form {
     @include flex-center;
     @include flex-row;
 
@@ -20,7 +20,7 @@
 
 }
 
-.container-login {
+.container-main-form {
     @include flex-center;
     @include flex-row;
 

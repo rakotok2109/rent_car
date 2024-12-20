@@ -12,7 +12,7 @@
 <?php 
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');?>
 
-    <div class="container-add-car">
+    <div class="container-main-form">
         <form class="container-form" action="../../routes/verif.php?id=addcar" method="POST">
             <div class="content-form">     
                 <div class="label-input-container">
@@ -35,7 +35,7 @@
                     <input class="input" type="text" id="description" name="description"  placeholder="Description"><br /></br />
                 </div>
 
-                <div class="vitesse-choices">
+                <div class="choices">
                         <input type="radio" id="manuelle" name="vitesse" value=1
                             class="radio">
                         <label for="loueur">Manuelle</label>
@@ -64,7 +64,7 @@
                     <input class="input" type="text" id="ville" name="ville"  placeholder="Ville"><br /></br />
                 </div>
 
-                <div class="disponibilite-choices">
+                <div class="choices">
                         <input type="radio" id="oui" name="disponibilite" value=1
                             class="radio">
                         <label for="loueur">Disponible</label>

@@ -1,97 +1,45 @@
 <?php
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');
 
-// Configuration pour retourner des réponses JSON
-header('Content-Type: application/json; charset=utf-8');
+if($_GET['id'] == 'addcar') {
+    $user=unserialize($_SESSION['user']);
+    $idOwner = $user->getId();
 
-try {
-    // Identifier la méthode HTTP utilisée
-    switch ($_SERVER['REQUEST_METHOD']) {
-        case 'GET':
-            if (isset($_GET['id'])) {
-                $car = CarController::getCarById($_GET['id']);
-                if ($car) {
-                    echo json_encode($car);
-                } else {
-                    echo json_encode(["error" => "Car not found"]);
-                }
-            } elseif (isset($_GET['user_id'])) {
-                $cars = CarController::getCarByOwner($_GET['user_id']);
-                echo json_encode($cars);
-            } else {
-                $cars = CarController::getAllCars();
-                // echo json_encode($cars);
-                return $cars;
-                
-            }
-            break;
-
-        case 'POST':
-            $car = new Car(
-                null,
-                $_POST['brand'],
-
-                $_POST['model'],
-                $_POST['kilometrage'],
-                $_POST['description'],
-                $_POST['vitesse'],
-                $_POST['year'],
-                $_POST['image'],
-                $_POST['user_id'],
-                $_POST['prix'],
-                $_POST['ville'],
-                $_POST['disponibilite'] = 1 // Par défaut, les voitures sont disponibles
-            );
-            $result = CarController::addCar($car);
-            echo json_encode(["success" => $result]);
-            break;
-
-        case 'PUT':
-            parse_str(file_get_contents("php://input"), $putData); // Récupérer les données PUT
-            if (isset($_GET['id'])) {
-                $car = CarController::getCarById($_GET['id']);
-                if ($car) {
-                    $car->setBrand($putData['brand']);
-                    $car->setModel($putData['model']);
-                    $car->setKilometrage($putData['kilometrage']);
-                    $car->setDescription($putData['description']);
-                    $car->setVitesse($putData['vitesse']);
-                    $car->setYear($putData['year']);
-                    $car->setImage($putData['image']);
-                    $car->setIdOwner($putData['user_id']);
-                    $car->setPrix($putData['prix']);
-                    $car->setVille($putData['ville']);
-                    $car->setDisponibilite($putData['disponibilite']);
-                    $result = CarController::updateCar($car);
-                    echo json_encode(["success" => $result]);
-                } else {
-                    echo json_encode(["error" => "Car not found"]);
-                }
-            } else {
-                echo json_encode(["error" => "Car ID is required"]);
-            }
-            break;
-
-        case 'DELETE':
-            if (isset($_GET['id'])) {
-                $car = CarController::getCarById($_GET['id']);
-                if ($car) {
-                    $result = CarController::deleteCar($car);
-                    echo json_encode(["success" => $result]);
-                } else {
-                    echo json_encode(["error" => "Car not found"]);
-                }
-            } else {
-                echo json_encode(["error" => "Car ID is required"]);
-            }
-            break;
-
-        default:
-            echo json_encode(["error" => "Invalid request method"]);
-            break;
+    if(isset( $_SESSION['ajoutvoitureErreur']))
+    {
+        unset( $_SESSION['ajoutvoitureErreur']);
     }
-} catch (Exception $e) {
-    http_response_code(500);
-    echo json_encode(["error" => $e->getMessage()]);
+    $car = new Car(
+        $_POST['brand'],
+        $_POST['model'],
+        $_POST['kilometrage'],
+        $_POST['description'],
+        $_POST['vitesse'],
+        $_POST['year'],
+        $_POST['image'],
+        $idOwner,
+        $_POST['prix'],
+        $_POST['ville'],
+        $_POST['disponibilite'],         
+    );
+
+    var_dump($idOwner);
+
+    CarController::validateBrand($car->getBrand());
+    CarController::validateModel($car->getModel());
+    CarController::validateKilometrage($car->getKilometrage());
+    CarController::validateDescription($car->getDescription());
+    CarController::validateVitesse($car->getVitesse());
+    CarController::validateYear($car->getYear());   
+    CarController::validateImage($car->getImage());
+    CarController::validatePrix($car->getPrix());
+    CarController::validateVille($car->getVille());
+    CarController::validateDisponibilite($car->getDisponibilite());
+
+    CarController::addCar($car);
+    //header('Location: /');
+
+   
+   
+    //header('Location: /');
 }
-exit;

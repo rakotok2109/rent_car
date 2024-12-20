@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="../../css/styles.css">
 
     <title>Ajout de voiture</title>
-</head> 
+</head>     
 <body>  
 <?php 
     require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');?>
 
     <div class="container-main-form">
-        <form class="container-form" action="../../routes/verif.php?id=addcar" method="POST">
+        <form class="container-form" action="../../routes/car.php?id=addcar" method="POST">
             <div class="content-form">     
                 <div class="label-input-container">
                     <label class="label" for="brand"></label>

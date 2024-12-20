@@ -132,7 +132,7 @@ class ReservationController
         $results = $pdo->requestSQL($query);
         $reservations = [];
         foreach ($results as $result) {
-            $reservations[] = new Reservation($result['id'], $result['payment_id'], $result['car_id'], $result['date_depart'], $result['date_retour']);
+            $reservations[] = new Reservation($result['id_order'], $result['payment_id'], $result['car_id'], $result['date_depart'], $result['date_retour']);
         }
         return $reservations;
      }

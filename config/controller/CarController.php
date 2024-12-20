@@ -94,4 +94,89 @@ class CarController
         return $cars;
     }
     
+    public static function validateBrand($brand) {
+        if (empty($brand)) {
+            throw new Exception("Le champ 'Brand' est obligatoire.");
+        }
+        if (strlen($brand) > 50) {
+            throw new Exception("Le champ 'Brand' ne doit pas dépasser 50 caractères.");
+        }
+        return true;
+    }
+
+    public static function validateModel($model) {
+        if (empty($model)) {
+            throw new Exception("Le champ 'Model' est obligatoire.");
+        }
+        if (strlen($model) > 50) {
+            throw new Exception("Le champ 'Model' ne doit pas dépasser 50 caractères.");
+        }
+        return true;
+    }
+
+    public static function validateKilometrage($kilometrage) {
+        if ($kilometrage < 0) {
+            throw new Exception("Le kilométrage doit être un nombre positif.");
+        }
+        return true;
+    }
+
+    public static function validateDescription($description) {
+        if (empty($description)) {
+            throw new Exception("Le champ 'Description' est obligatoire.");
+        }
+        if (strlen($description) > 255) {
+            throw new Exception("Le champ 'Description' ne doit pas dépasser 255 caractères.");
+        }
+        return true;
+    }
+
+    public static function validateVitesse($vitesse) {
+        if (!in_array($vitesse, [0, 1])) {
+            throw new Exception("Le champ 'Vitesse' doit être 0 (Automatique) ou 1 (Manuelle).");
+        }
+        return true;
+    }
+
+    public static function validateYear($year) {
+        $currentYear = (int)date("Y");
+        if ($year < 1900 || $year > $currentYear) {
+            throw new Exception("L'année doit être comprise entre 1900 et $currentYear.");
+        }
+        return true;
+    }
+
+    public static function validateImage($image) {
+        if (empty($image)) {
+            throw new Exception("Le champ 'Image' est obligatoire.");
+        }
+        if (strlen($image) > 255) {
+            throw new Exception("Le champ 'Image' doit contenir une URL valide.");
+        }
+        return true;
+    }
+
+    public static function validatePrix($prix) {
+        if ($prix < 0) {
+            throw new Exception("Le prix doit être un nombre positif.");
+        }
+        return true;
+    }
+
+    public static function validateVille($ville) {
+        if (empty($ville)) {
+            throw new Exception("Le champ 'Ville' est obligatoire.");
+        }
+        if (strlen($ville) > 100) {
+            throw new Exception("Le champ 'Ville' ne doit pas dépasser 100 caractères.");
+        }
+        return true;
+    }
+
+    public static function validateDisponibilite($disponibilite) {
+        if (!in_array($disponibilite, [0, 1])) {
+            throw new Exception("Le champ 'Disponibilité' doit être 0 (Non Disponible) ou 1 (Disponible).");
+        }
+        return true;
+    }
 }

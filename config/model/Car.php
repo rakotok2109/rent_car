@@ -15,9 +15,8 @@ class Car implements JsonSerializable
     private $ville;
     private $disponibilite;
 
-    public function __construct($id = null, $brand, $model, $kilometrage, $description, $vitesse, $year, $image, $idOwner = null, $prix, $ville, $disponibilite=1)
-    {
-        $this->id = $id;
+    public function __construct($brand, $model, $kilometrage, $description, $vitesse, $year, $image, $idOwner, $prix, $ville, $disponibilite=1, $id = null)
+    {        
         $this->brand = $brand;
         $this->model = $model;
         $this->kilometrage = $kilometrage;
@@ -29,6 +28,7 @@ class Car implements JsonSerializable
         $this->prix = $prix;
         $this->ville = $ville;
         $this->disponibilite = $disponibilite;
+        $this->id = (int)$id;
     }
 
     public function getId()
@@ -45,7 +45,7 @@ class Car implements JsonSerializable
         $this->brand = $brand;
     }
 
-    public function getmodel()
+    public function getModel()
     {
         return $this->model;
 

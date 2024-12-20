@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/5563162149.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 
     <title>Dashboard</title>
 </head>
@@ -31,11 +31,16 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
 
 <!-- MAIN -->
 
-<main>
+<section id="content-dashboard">
+        <nav>
+            <i class="icon fa fa-menu"></i>
+            <h4 class="texte">Tableau de bord Car Showcase</h4>
+        </nav>
+        <main>
     <div class="head-title">
         <div class="left">
             <h1>Accueil</h1>
-            <ul class="nav">
+            <ul class="breadcrumb">
                 <li>
                     <a href="#">Dashboard</a>
                 </li>
@@ -56,7 +61,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
     <div class="table-data">
        <div class="reservation">
         <div class="head">
-        <h3>États financiers CarHub</h3>
+        <h3>États financiers CarShowcase</h3>
                     <button onclick="" class="btn-pdf">Télécharger
                         PDF</button>
                         <!-- todo -->
@@ -99,6 +104,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
        </div>
     </div>
 </main>
+
+    </section>
+
 
     
 </body>

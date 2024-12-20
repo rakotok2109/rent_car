@@ -73,6 +73,33 @@ else if($_GET['id'] == 'logout') {
     header('Location: /pages/home.php');
 }
 
+else if($_GET['id'] == 'update') {
+
+    if(isset( $_SESSION['modificationErreur']))
+    {
+        unset( $_SESSION['modificationErreur']);
+    }
+    $user = new User(
+        $_POST['lastname'],
+        $_POST['firstname'],
+        $_POST['phone'],
+        $_POST['email'],
+        $_POST['role'],
+    );
+
+    UserController::validateEmail($user->getEmail());
+    UserController::validateFirstname($user->getFirstname());
+    UserController::validateRole($user->getRole());
+    UserController::validateName($user->getName());
+    UserController::validatePhone($user->getPhone());
+    UserController::validatePassword($user->getPassword());
+
+    UserController::update($user);
+   
+   
+    header('Location: /');
+}
+
 else{
     header('Location: /pages/home.php');
 }

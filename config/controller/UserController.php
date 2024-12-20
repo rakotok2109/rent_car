@@ -40,6 +40,11 @@ class UserController {
        
     }
 
+    public static function update (User $user)
+    {
+        $pdo = PDOUtils::getSharedInstance();
+        $pdo->execSQL('UPDATE users SET (email, nom, prenom, phone, role) VALUES (?, ?, ?, ?, ?) WHERE id = ?', [$user->getEmail(), $user->getName(),$user->getFirstname(),$user->getPhone() ,$user->getRole(), $user->getId()]);
+    }
 
 
     

@@ -25,7 +25,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/config/init.php'); // Inclure la conf
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">A Propos</a></li>
                     <li><a href="/pages/faq.php">FAQ</a></li>
-                    <?php if (isset($_SESSION['user'])) :
+                    <?php if (isset( $_SESSION['user'])) :
                         $user = unserialize($_SESSION['user']);
                         ?>
                         <li><a href="/pages/account">

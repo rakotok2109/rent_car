@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/5563162149.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 
     <title>Dashboard</title>
 </head>
@@ -87,7 +87,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
                         <td><?php echo $no;?></td>
                         <td><?php echo $reservation->getId();?></td>
                         <td><?php echo $reservation->getDateRetour()->format('d-m-Y');?></td>
-                        <td><?php echo $reservation-> $payement->getCost();?></td>
+                        <td><?php echo $payement->getCost();?></td>
                     </tr>
                 <?php endforeach;?>
                 <tr>

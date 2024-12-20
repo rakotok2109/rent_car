@@ -1,5 +1,14 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5563162149.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
+
+</head>
+<body>
 <div>
-<script src="https://kit.fontawesome.com/5563162149.js" crossorigin="anonymous"></script>
 
     <section id="sidebar">
         <?php 
@@ -28,14 +37,14 @@
   </g>
 </svg>
            
-            <span class="text"><?php echo $user->getName() . ' '. $user->getFirstname()  ?></span>
+            <span class="texte"><?php echo $user->getName() . ' '. $user->getFirstname()  ?></span>
         </a>
 
         <ul class="side-menu top">
 
         <li class=<?php strpos($currentUrl, 'dashboard_home') ? 'active' : '' ?> >
             <a href="../admin/dashboard_home.php">
-                <i class="fas fa-tachometer-alt"></i>
+                <i class="icon fas fa-tachometer-alt"></i>
                 <span  class="texte">Tableau de bord</span>
             </a>
         </li>
@@ -49,7 +58,7 @@
         </li>
         <li class=<?php strpos($currentUrl, 'dashboard_user') ? 'active' : '' ?> >
             <a href="../admin/dashboard_user.php">
-                <i class=" fa fa-users
+                <i class="icon fa fa-users
                 "></i>
                 <span  class="texte">Utilisateurs</span>
             </a>
@@ -58,7 +67,7 @@
             <a href="../admin/dashboard_order.php">
                 <i class="icon fa fa-shopping-cart
                 "></i>
-                <span>Réservations</span>
+                <span class="texte">Réservations</span>
             </a>
         </li>
         <li class=<?php strpos($currentUrl, 'dashboard_order') ? 'active' : '' ?> >
@@ -85,8 +94,11 @@
     <section id="content-sidebar">
         <nav>
             <i class="icon fa fa-menu"></i>
-            <h4>Tableau de bord Car Showcase</h4>
+            <h4 class="texte">Tableau de bord Car Showcase</h4>
 
         </nav>
     </section>
 </div>
+</body>
+</html>
+

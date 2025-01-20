@@ -33,4 +33,6 @@ $listOfRentCarError = [
     6=>"Veuillez choisir une voiture",
 ];
 
+
+
 ?>

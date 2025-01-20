@@ -59,15 +59,15 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
     </div>
 
     <div class="table-data">
-       <div class="reservation">
+       <div class="table-content">
         <div class="head">
         <h3>États financiers CarShowcase</h3>
-                    <button onclick="" class="btn-pdf">Télécharger
+                    <button onclick="openModal()" class="btn-pdf">Télécharger
                         PDF</button>
                         <!-- todo -->
-            <a href="" class="btn btn-primary">Par semaine</a>
+            <!-- <a href="" class="btn btn-primary">Par semaine</a>
             <a href="" class="btn btn-primary">Par mois</a>
-            <a href="" class="btn btn-primary">Par année</a>
+            <a href="" class="btn btn-primary">Par année</a> -->
 
         </div>
         <table>
@@ -95,19 +95,70 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
                         <td><?php echo $payement->getCost();?></td>
                     </tr>
                 <?php endforeach;?>
-                <tr>
+                <!-- <tr>
                     <td colspan="3">Total</td>
                     <td><?php echo $totalCost;?></td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
+        <p>Coût total: <?php echo $totalCost ?> </p>
        </div>
     </div>
 </main>
 
+<div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 style="margin-bottom:20px">Télécharger les états financiers PDF</h3>
+            <div class="form">
+                <div class="">
+                    <form action="" method="post">
+                        <input class="hidden" value="week" name="range" type="text">
+                
+                        <button class="btn-pdf" type="submit">rapport hebdomadaire</button>
+                    </form>
+                </div>
+                <!-- <div class="">
+                    <form action="{{ route('pdf_finance', ['range' => 'week']) }}" method="post">
+                
+                        <button class="btn-pdf" type="submit">rapport hebdomadaire</button>
+                    </form>
+                </div> -->
+                <div>
+                <form action="" method="post">
+                        <input class="hidden" value="month" name="range" type="text">
+                
+                        <button class="btn-pdf" type="submit">Rapport mensuel</button>
+                    </form>
+                   
+                </div>
+                <div>
+                <form action="" method="post">
+                        <input class="hidden" value="year" name="range" type="text">
+                
+                        <button class="btn-pdf" type="submit">Rapport annuel</button>
+                    </form>
+                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     </section>
 
 
+    <script>
+        function openModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
     
 </body>
 </html>

@@ -90,11 +90,11 @@ button:hover {
   border-color: #FF0000;
 }
 
-.role-choices label {
+.choices label {
   color: #D5FD05;
 }
 
-.role-choices .radio {
+.choices .radio {
   appearance: none; /* Supprime l'apparence par défaut */
   width: 20px; /* Largeur du carré */
   height: 20px; /* Hauteur du carré */
@@ -105,7 +105,7 @@ button:hover {
   cursor: pointer; /* Change le curseur au survol */
 }
 
-.role-choices .radio:checked {
+.choices .radio:checked {
   background-color: #D5FD05; /* Couleur de fond lorsque sélectionné */
 }
 
@@ -184,7 +184,7 @@ label {
   background-color: #660000;
 }
 
-.container-subscribe {
+.container-main-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,7 +195,24 @@ label {
   color: white;
 }
 @media screen and (max-width: 768px) {
-  .container-subscribe {
+  .container-main-form {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.container-main-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  background-color: #08323D !important;
+  padding: 20px;
+  color: white;
+}
+@media screen and (max-width: 768px) {
+  .container-main-form {
     display: flex;
     flex-direction: column-reverse;
   }
@@ -222,7 +239,7 @@ label {
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .content-form {
@@ -232,6 +249,15 @@ label {
   width: 100%;
   margin-top: 4px;
   margin-bottom: 8px;
+}
+
+.choices {
+  display: flex;
+  flex-direction: row;
+}
+
+input.hidden {
+  display: none;
 }
 
 .image {
@@ -699,49 +725,10 @@ label {
 
 #content-dashboard {
   position: relative;
-  width: calc(100% - 280px);
+  width: calc(100% - 290px) !important;
   left: 280px;
   transition: 0.3s ease;
 }
-
-#sidebar.hide ~ #content-dashboard {
-  width: calc(100% - 60px);
-  left: 60px;
-}
-
-/* NAVBAR */
-#content-dashboard nav {
-  height: 56px;
-  background: #F9F9F9;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  grid-gap: 24px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-#content-dashboard nav::before {
-  content: "";
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  bottom: -40px;
-  left: 0;
-  border-radius: 50%;
-  box-shadow: -20px -20px 0 #F9F9F9;
-}
-#content-dashboard nav a {
-  color: #000000;
-}
-#content-dashboard nav .icon {
-  cursor: pointer;
-  color: #000000;
-}
-
-/* NAVBAR */
-/* MAIN */
 #content-dashboard main {
   width: 100% !important;
   padding: 36px 24px;
@@ -839,85 +826,37 @@ label {
   flex-wrap: wrap;
   grid-gap: 24px;
   margin-top: 24px;
-  width: 100%;
   color: #000000;
 }
-#content-dashboard main .table-data > div {
+#content-dashboard main .table-data .table-content {
   border-radius: 20px;
   background: #F9F9F9;
   padding: 24px;
   overflow-x: auto;
+  width: 100%;
 }
-#content-dashboard main .table-data > div .head {
+#content-dashboard main .table-data .table-content .head {
   display: flex;
   align-items: center;
   grid-gap: 16px;
   margin-bottom: 24px;
 }
-#content-dashboard main .table-data > div .head h3 {
+#content-dashboard main .table-data .table-content .head h3 {
   margin-right: auto;
   font-size: 24px;
   font-weight: 600;
 }
-#content-dashboard main .table-data > div .head .icon {
+#content-dashboard main .table-data .table-content .head .icon {
   cursor: pointer;
 }
-#content-dashboard main .table-data > div .reservation {
-  flex-grow: 1;
-  flex-basis: 500px;
-}
-#content-dashboard main .table-data > div .reservation table {
-  width: 100% !important;
-  border-collapse: collapse;
-}
-#content-dashboard main .table-data > div .reservation table th {
-  padding-bottom: 12px;
-  font-size: 13px;
-  text-align: left;
-  border-bottom: 1px solid #808080;
-}
-#content-dashboard main .table-data > div .reservation table td {
-  padding: 16px 0;
-}
-#content-dashboard main .table-data > div .reservation table tr td:first-child {
-  display: flex;
-  align-items: center;
-  grid-gap: 12px;
-  padding-left: 6px;
-}
-#content-dashboard main .table-data > div .reservation table tr td:first-child img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-#content-dashboard main .table-data > div .reservation table tr:hover {
-  background: #808080;
-}
-#content-dashboard main .table-data > div .reservation table td .status {
-  font-size: 10px;
-  padding: 6px 16px;
-  color: #F9F9F9;
-  border-radius: 20px;
-  font-weight: 700;
-}
-#content-dashboard main .table-data > div .reservation table .status.completed {
-  background: #08323D;
-}
-#content-dashboard main .table-data > div .reservation table .status.process {
-  background: #FFD700;
-}
-#content-dashboard main .table-data > div .reservation table .status.pending {
-  background: #FFA500;
-}
-#content-dashboard main .table-data > div .todo {
+#content-dashboard main .table-data .table-content .todo {
   flex-grow: 1;
   flex-basis: 300px;
 }
-#content-dashboard main .table-data > div .todo .todo-list {
+#content-dashboard main .table-data .table-content .todo .todo-list {
   width: 100%;
 }
-#content-dashboard main .table-data > div .todo .todo-list li {
+#content-dashboard main .table-data .table-content .todo .todo-list li {
   width: 100%;
   margin-bottom: 16px;
   background: #808080;
@@ -927,17 +866,191 @@ label {
   justify-content: space-between;
   align-items: center;
 }
-#content-dashboard main .table-data > div .todo .todo-list li .icon {
+#content-dashboard main .table-data .table-content .todo .todo-list li .icon {
   cursor: pointer;
 }
-#content-dashboard main .table-data > div .todo .todo-list li.completed {
+#content-dashboard main .table-data .table-content .todo .todo-list li.completed {
   border-left: 10px solid #08323D;
 }
-#content-dashboard main .table-data > div .todo .todo-list li.not-completed {
+#content-dashboard main .table-data .table-content .todo .todo-list li.not-completed {
   border-left: 10px solid #FFA500;
 }
-#content-dashboard main .table-data > div .todo .todo-list li:last-child {
+#content-dashboard main .table-data .table-content .todo .todo-list li:last-child {
   margin-bottom: 0;
+}
+#content-dashboard main .table-data .table-content {
+  flex-grow: 1;
+  flex-basis: 500px;
+  width: 100% !important;
+}
+#content-dashboard main .table-data .table-content table {
+  width: 100% !important;
+  border-collapse: collapse;
+  align-items: center;
+  justify-content: center;
+}
+#content-dashboard main .table-data .table-content table th {
+  padding-bottom: 12px;
+  font-size: 13px;
+  text-align: left;
+  border-bottom: 1px solid #808080;
+}
+#content-dashboard main .table-data .table-content table td {
+  padding: 16px 0;
+}
+#content-dashboard main .table-data .table-content table td .status {
+  font-size: 10px;
+  padding: 6px 16px;
+  color: #F9F9F9;
+  border-radius: 20px;
+  font-weight: 700;
+}
+#content-dashboard main .table-data .table-content table td img {
+  border-radius: 0;
+  width: 100px;
+  height: 100px;
+}
+#content-dashboard main .table-data .table-content table td .action_btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#content-dashboard main .table-data .table-content table td .action_btns .action_btn {
+  background-color: white !important;
+}
+#content-dashboard main .table-data .table-content table tr td:first-child {
+  display: flex;
+  align-items: center;
+  grid-gap: 12px;
+  padding-left: 6px;
+}
+#content-dashboard main .table-data .table-content table tr td:first-child img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+#content-dashboard main .table-data .table-content table tr:hover {
+  background: #808080;
+}
+#content-dashboard main .table-data .table-content table .status.completed {
+  background: #08323D;
+}
+#content-dashboard main .table-data .table-content table .status.process {
+  background: #FFD700;
+}
+#content-dashboard main .table-data .table-content table .status.pending {
+  background: #FFA500;
+}
+#content-dashboard main .table-data .table-content form .form-group {
+  margin-bottom: 1rem;
+}
+#content-dashboard main .table-data .table-content form .form-group label {
+  font-weight: bold;
+}
+#content-dashboard main .table-data .table-content form .form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+}
+#content-dashboard main .table-data .table-content form .form-group input[type=file] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+}
+#content-dashboard main .table-data .table-content form .form-group button {
+  width: 100% !important;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+}
+
+#sidebar.hide ~ #content-dashboard {
+  width: calc(100% - 60px);
+  left: 60px;
+}
+
+/* NAVBAR */
+#content-dashboard nav {
+  height: 56px;
+  background: #F9F9F9;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  grid-gap: 24px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+#content-dashboard nav::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: -40px;
+  left: 0;
+  border-radius: 50%;
+  box-shadow: -20px -20px 0 #F9F9F9;
+}
+#content-dashboard nav a {
+  color: #000000;
+}
+#content-dashboard nav .icon {
+  cursor: pointer;
+  color: #000000;
+}
+
+/* NAVBAR */
+/* MAIN */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #08323D;
+  align-items: center;
+  justify-content: center;
+}
+.modal .modal-content {
+  background-color: #ffffff;
+  margin: 0 auto;
+  margin-top: 15%;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px;
+  height: 150px;
+  align-self: center;
+  left: 15%;
+}
+.modal .modal-content .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.modal .modal-content .close:hover {
+  color: #FF0000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal .modal-content .form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.modal .modal-content .form input {
+  display: none !important;
 }
 
 .container {

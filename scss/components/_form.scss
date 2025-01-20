@@ -64,7 +64,7 @@
 
 
   
-   margin-bottom: $margin-unit*4;
+   margin-bottom: $margin-unit*3;
 }
 
 
@@ -78,4 +78,14 @@
     width: 100%; 
     margin-top: $margin-unit; 
     margin-bottom: $margin-unit*2;
+}
+
+.choices
+{
+    display: flex;
+    flex-direction: row;
+}
+
+input.hidden{
+    display: none;
 }

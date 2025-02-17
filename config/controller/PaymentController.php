@@ -100,7 +100,7 @@ public static function getPaymentById($id)
     public static function updatePayment($payment)
     {
         $pdo = PDOUtils::getSharedInstance();
-        $sql = "UPDATE payment SET user_id = :user_id, cost = :cost, is_paid = :is_paid, payment_receipt = :payment_receipt WHERE id = :id";
+        $sql = "UPDATE payements SET user_id = :user_id, cost = :cost, is_paid = :is_paid, payment_receipt = :payment_receipt WHERE id_payement = :id";
         $params = array(
             ':id' => $payment->getId(),
             ':user_id' => $payment->getUserId(),
@@ -116,7 +116,7 @@ public static function getPaymentById($id)
     public static function deletePayment($id)
     {
         $pdo = PDOUtils::getSharedInstance();
-        $sql = "DELETE FROM payements WHERE id = :id";
+        $sql = "DELETE FROM payements WHERE id_payement = :id";
         $params = array(':id' => $id);
         $pdo->execSQL($sql, $params);
     }
@@ -124,11 +124,11 @@ public static function getPaymentById($id)
     public static function getPaymentByUserId($user_id)
     {
         $pdo = PDOUtils::getSharedInstance();
-        $result =  $pdo->requestSQL('SELECT id FROM payments WHERE user_id = ?', [$user_id]);
+        $result =  $pdo->requestSQL('SELECT * FROM payements WHERE user_id = ?', [$user_id]);
 
         $payments = [];
         foreach ($result as $payment) {
-            $payments[] = new Payment($payment['id'], $payment['user_id'], $payment['cost'], $payment['is_paid'], $payment['payment_receipt']);
+            $payments[] = new Payment($payment['id_payement'], $payment['user_id'], $payment['cost'], $payment['is_paid'], $payment['payment_receipt']);
         }
         return $payments;
 

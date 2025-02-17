@@ -17,6 +17,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');
 if (isset($_GET['id'])) {
     $car_id = $_GET['id'];
     $car = CarController::getCarById($car_id);
+    // var_dump($car);
     if ($car) {
         $car_data = $car->jsonSerialize();
         if ($car_data) {
@@ -51,7 +52,7 @@ if (isset($_GET['id'])) {
                         <form action="../routes/reservation.php" method="post">
 <?php 
 if (!empty($carJson)) {
-    echo '<input type="hidden" name="car" value="' . htmlspecialchars($carJson) . '">';
+    echo '<input type="hidden" name="car_id" value="' . htmlspecialchars($car_id) . '">';
 } else {
     echo 'Erreur : Les données du véhicule ne sont pas disponibles.';
     exit();

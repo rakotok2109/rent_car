@@ -1,0 +1,113 @@
+
+.header {
+    background-color: #08323D;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header .auth-buttons .btn {
+    background-color: #00d876 !important;
+    border: none !important;
+    padding: 8px 20px !important;
+    color: #ffffff !important;
+  }
+  
+  .hero {
+    margin-top: 0;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .hero .container {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-items: center;
+  }
+  .hero .container .hero1 {
+    background-color: #08323D !important;
+    display: flex;
+    flex-direction: row;
+    padding: 0 16px;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero .container .hero1 .car-image {
+    scale: 0.8;
+    margin-right: 10%;
+    position: relative;
+    z-index: 2;
+    top: 20px;
+    right: 0;
+    width: 50%;
+  }
+  .hero .container .hero1 .car-image img {
+    width: 100%;
+    height: auto;
+  }
+  .hero .container .hero1 .car-image .cercle {
+    position: absolute;
+    top: 50%;
+    left: 78%;
+    width: 350px;
+    height: 400px;
+    background-color: #D5FD05;
+    border-radius: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+  }
+  .hero .container .hero1 .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    max-width: 40%;
+    height: 100%;
+    align-items: flex-start;
+    margin-left: 80px;
+  }
+  .hero .container .hero1 .hero-text h1 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 4px;
+    text-align: left;
+    align-self: center;
+  }
+  
+
+
+.navbar-container {
+    position: sticky;
+    top: 0;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+  }
+  .navbar-container .logo {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 16px;
+  }
+  .navbar-container .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #08323D;
+  }
+  .navbar-container .navbar ul {
+    display: flex;
+    gap: 20px;
+    text-decoration: none !important;
+    margin-right: 16px;
+  }
+  .navbar-container .navbar ul li {
+    list-style: none;
+  }
+  .navbar-container .navbar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+  }

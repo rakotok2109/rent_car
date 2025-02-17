@@ -34,27 +34,27 @@
             </a>
         </li>
 
-        <li class="<?php strpos($currentUrl, 'dashboard_car') ? 'active' : '' ?>" >
+        <li class="<?php strpos($currentUrl, 'dashboard_car.php') !== false ? 'active' : '' ?>" >
             <a href="../admin/dashboard_car.php">
             <i class="icon fa-solid fa-car"></i>
                 <span  class="texte">Véhicules</span>
             </a>
         </li>
-        <li class="<?php strpos($currentUrl, 'dashboard_user') ? 'active' : '' ?>" >
+        <li class="<?php strpos($currentUrl, 'dashboard_user') !== false ? 'active' : '' ?>" >
             <a href="../admin/dashboard_user.php">
                 <i class="icon fa fa-users
                 "></i>
                 <span  class="texte">Utilisateurs</span>
             </a>
         </li>
-        <li class="<?php strpos($currentUrl, 'dashboard_order') ? 'active' : '' ?>" >
+        <li class="<?php strpos($currentUrl, 'dashboard_order')!== false ? 'active' : '' ?>" >
             <a href="../admin/dashboard_order.php">
                 <i class="icon fa fa-shopping-cart
                 "></i>
                 <span class="texte">Réservations</span>
             </a>
         </li>
-        <li class=<?php strpos($currentUrl, 'dashboard_order') ? 'active' : '' ?> >
+        <li class=<?php strpos($currentUrl, 'dashboard_order') !== false ? 'active' : '' ?> >
             <a href="../admin/dashboard_order.php">
                 <i class="icon fa fa-credit-card
                 "></i>

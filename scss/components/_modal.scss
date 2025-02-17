@@ -58,3 +58,57 @@
     }
  
 }
+
+
+.modal-order {
+    // Styles généraux pour le modal
+    display: none; // Cacher le modal par défaut
+    .modal-dialog {
+        max-width: 600px; // Largeur maximale du modal
+        margin: 1.75rem auto; // Centrer le modal verticalement
+    }
+
+    .modal-content {
+        border-radius: 0.5rem; // Arrondi des coins du contenu du modal
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); // Ombre du modal
+    }
+
+    .modal-header {
+        background-color: #f8f9fa; // Couleur de fond de l'en-tête
+        border-bottom: 1px solid #dee2e6; // Bordure en bas de l'en-tête
+        .modal-title {
+            font-weight: bold; // Titre en gras
+            color: #343a40; // Couleur du texte du titre
+        }
+        .btn-close {
+            color: #343a40; // Couleur du bouton de fermeture
+        }
+    }
+
+    .modal-body {
+        padding: 20px; // Espacement intérieur du corps du modal
+        .input-group {
+            margin-bottom: 1rem; // Espacement entre les groupes d'entrée
+            .input-group-text {
+                background-color: #e9ecef; // Couleur de fond du groupe d'entrée
+                border: 1px solid #ced4da; // Bordure du groupe d'entrée
+            }
+        }
+        .form-label {
+            margin-bottom: 0.5rem; // Espacement en bas de l'étiquette
+            color: #495057; // Couleur du texte de l'étiquette
+        }
+        .form-control {
+            border: 1px solid #ced4da; // Bordure des champs de formulaire
+            &:focus {
+                border-color: #80bdff; // Couleur de la bordure au focus
+                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); // Ombre au focus
+            }
+        }
+    }
+
+    .modal-footer {
+        background-color: #f8f9fa; // Couleur de fond du pied de page du modal
+       
+    }
+}

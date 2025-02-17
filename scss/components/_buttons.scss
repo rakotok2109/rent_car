@@ -23,3 +23,18 @@ button {
 .btn{
     @include style-button;
 }
+
+.btn-success{
+    background-color: $success-color;
+    color: $white-color;
+}
+
+.btn-warning{
+    background-color: $warning-color;
+    color: $white-color;
+}
+
+.btn-danger{
+    background-color: $error-color;
+    color: $white-color;
+}

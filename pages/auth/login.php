@@ -13,11 +13,34 @@
  
 ?>
 
-<?php include '../struct/header.php';?>
+
 <body>
+<?php include '../struct/header.php';?>
     <div class="container-main-form">
+        <div>
+        <div >
+        <h3 class="form-title">Louer les meilleures voitures sur Car Showcase</h3>
+                    <p>Bienvenue ! Connectes toi pour utiliser nos services
+                        !</p>
+                        <?php if(isset($_SESSION['connexionErreur']))
+        {
+    echo'<div class="errorDiv">';
+            
+            echo '<ul>';
+
+            foreach($_SESSION['connexionErreur'] as $error)
+            {
+                echo '<li>'.$listOfLoginErrors[$error].'</li>';
+            }
+    echo '</ul>';
+    echo '</div>';
+        }
+           
+            
+        ?>
+        </div>
         <form class="container-form" action="../../routes/verif.php?id=login" method="POST">
-            <div class="content-form">     
+            <div class="content-form">
                 <div class="label-input-container">
                     <label class="label" for="email"></label>
                     <input class="input" type="email" id="email" name="email"  placeholder="Email">
@@ -31,7 +54,14 @@
 
             <button type="submit" class="button">Se connecter</button>
         </form>
-    </div>
+       
+   
+        </div>
+        <div class="image">
+                <div class="circle"></div>
+                <img src="../../images/ressources/carOnSubscribeForm.png" alt="=Voiture"/>
+            </div>
+ </div>
 
     <?php include '../struct/footer.php';?>
 </body>

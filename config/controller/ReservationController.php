@@ -67,11 +67,17 @@ if (!($pickup_date instanceof DateTime) || !($dropoff_date instanceof DateTime))
 
         // Création d'une entrée dans CarReturn liée à la commande
       $result =  CarReturnController::addCarReturn($reservation->getId());
-
       if($result){
-          return true;
+          return [
+            'status' => true,
+            'reservation_id' => $reservation->getId(),
+            'payment_id' => $payment->getId()
+          ];
         }
-        return false;
+        return [
+            'status' => false,
+            'error' => 'Erreur lors de la création de la réservation.'
+        ];
 
 
         }catch(Exception $e){
@@ -133,7 +139,9 @@ if (!($pickup_date instanceof DateTime) || !($dropoff_date instanceof DateTime))
      //Récupérer une réservation par son id
      public static function getReservationById($id) {
         $pdo = PDOUtils::getSharedInstance();
-        $reservation = $pdo->requestSQL('SELECT * FROM reservations WHERE id_order =?',[$id])[0];
+        $result = $pdo->requestSQL('SELECT * FROM reservations WHERE id_order =?',[$id])[0];
+        $reservation = new Reservation($result['id_order'], $result['payment_id'], $result['car_id'], $result['date_depart'], $result['date_retour']);
+
         return $reservation;
      }
      //Récupérer toutes les réservations

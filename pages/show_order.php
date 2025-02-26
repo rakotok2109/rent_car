@@ -103,7 +103,7 @@ else{
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="invoice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- <div class="modal fade" id="invoice" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -137,7 +137,7 @@ else{
                                         </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <?php endif; ?>
                         </div>
                     </div>
@@ -153,6 +153,9 @@ else{
      <?php include '../pages/struct/footer.php';?> 
 
 
+     <script>
+        
+     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

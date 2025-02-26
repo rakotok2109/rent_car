@@ -35,9 +35,11 @@ try {
                             $request['pickup_date'] = $pickupDate;
                             $request['dropoff_date'] = $dropoffDate;
                             $result = ReservationController::addReservation($car, $request);
-                            if ($result) {
+                            if ($result['status']) {
                                 // echo json_encode(['success' => true]);
-                                header('Location: /pages/show_order.php');
+                                // header('Location: /pages/show_order.php');
+
+                                header('Location: /pages/checkout?reservation_id='.$result['reservation_id'].'&payment_id='.$result['payment_id']);
                             } else {
                          header('Location: /pages/show_car.php?id='.$carData['id']);
                                 // echo json_encode(['success' => false]);

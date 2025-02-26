@@ -4,7 +4,7 @@ if (isset($_SESSION['user']) && time() > $_SESSION['user']['expiration']) {
     session_destroy(); // Détruit la session
 }
 
-// ... code existant ...
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

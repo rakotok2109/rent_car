@@ -25,7 +25,7 @@ if (isset($_GET['id'])) {
         
             if (json_last_error() !== JSON_ERROR_NONE) {
                 echo 'Erreur lors de la conversion en JSON : ' . json_last_error_msg();
-                var_dump($car_data); // Affichez les données pour comprendre le problème
+                var_dump($car_data);
                 exit();
             }
         }

@@ -1,0 +1,98 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+
+.table
+{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: $margin-unit*10;
+
+    th, td
+    {
+        border: $border-weight solid $border-color;
+        padding: $padding-unit*4;
+        text-align: left;
+    }
+
+    th{
+        background-color: $gray-color;
+        color: $white-color;
+    }
+}
+
+
+
+
+.checkout-form-container {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    
+.input-group {
+    margin-bottom: 15px;
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #d88a32;
+        border-radius: 5px;
+    }
+    
+}
+
+
+.card-element {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid $yellow-color;
+    border-radius: 5px;
+    background: #fff;
+}
+
+.checkout-button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+
+
+    &:hover{
+        background-color: darken($primary-color, 10%);  
+    }
+}
+
+.error-message {
+    color: #af2127;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+.total-price {
+    color: $primary-color;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+}
+
+
+
+
+
+
+
+
+

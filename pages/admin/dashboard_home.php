@@ -19,8 +19,15 @@ else{
     if($user->getRole() != 1){
         header('Location: /pages/home.php');
     }
+    if($user->getIsAdmin() == 0){
+        $reservations = ReservationController::getReservationByOwner();
 
+
+    }
+else{
     $reservations = ReservationController::getAllReservations();
+
+}
 
 }
 

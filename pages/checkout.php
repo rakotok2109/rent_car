@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');
 if(!isset($_SESSION['user'])){
@@ -117,7 +117,7 @@ $user = unserialize($_SESSION['user']);
             return;
         }
 
-        let cart =JSON.parse(  [
+        let cart = [
             {
                 carId: carId,
                 quantite: 1,
@@ -125,12 +125,11 @@ $user = unserialize($_SESSION['user']);
                 commentaire: '',
                 paymentId: paymentId,
                 reservationId: reservationId
-              
-
             }
-        ]);
+        ];
         let totalAmount = cart.reduce((sum, item) => sum + item.prix * item.quantite, 0);
         console.log('fetching')
+        console.log(totalAmount)
         fetch('../routes/process_payment.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -140,7 +139,10 @@ $user = unserialize($_SESSION['user']);
                 totalAmount: totalAmount,
                 first_name: firstName,
                 last_name: lastName,
-                address: address
+                address: address,
+                paymentId: paymentId,
+                reservationId: reservationId,
+                carId: carId
             })
         })
             .then(response => response.text())

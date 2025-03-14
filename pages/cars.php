@@ -12,7 +12,7 @@
     <h1>Nos véhicules</h1>
     <div class="cars-container grid-container">
         <!-- Afficher les véhicules ici -->
-        <?php  
+        <?php
             require_once '../config/init.php'; // Inclure la configuration
 
             // Définir le nombre de voitures par page
@@ -29,6 +29,8 @@
                 if (count($cars) === 0) {
                     echo "<p class=''>Aucune voiture disponible.</p>";
                 } else {
+                    echo "<div class='row'>";
+
                     foreach ($cars as $car) {
                         echo "
                         <div class='card'>
@@ -53,6 +55,8 @@
                         </div>
                         ";
                     }
+                    echo "</div>";
+
 
                    
                 }

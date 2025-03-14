@@ -89,8 +89,37 @@ if (!($pickup_date instanceof DateTime) || !($dropoff_date instanceof DateTime))
         
 
      }
+          // Récuperer les réservations reçu par le loueur (loueur)
+          public static function getReservationByOwner( $offset=null, $limit = null)
+          {
+            $user = unserialize($_SESSION['user']);
+            $user_id = $user->getId();
+            $cars = CarController::getCarByOwner($user_id);
+            $pdo = PDOUtils::getSharedInstance();
 
-     // Récuperer les réservations de l'utilisateur authentifié
+            // Create a table with car id
+            $car_ids = [];
+            foreach ($cars as $car) {
+                $car_ids[] = $car->getId();
+            }
+
+             $query = "SELECT * FROM reservations WHERE car_id IN (" . implode(',', $car_ids) . ")";
+             if (!is_null($offset) && !is_null($limit)) {
+                $query .= " LIMIT " . $offset . ", " . $limit;
+            }
+            $results = $pdo->requestSQL($query);
+            $reservations = [];
+            foreach ($results as $result) {
+                $reservations[] = new Reservation($result['id_order'], $result['payment_id'], $result['car_id'], $result['date_depart'], $result['date_retour']);
+            }
+            
+            return $reservations;
+
+
+          }
+
+
+     // Récupérer les réservations faites par l'utilisateur authentifié (locataire)
      public static function getReservationsByUser($offset = null, $limit = null) {
         $user = unserialize($_SESSION['user']);
         $user_id = $user->getId();

@@ -19,19 +19,29 @@ else{
         header('Location: /pages/home.php');
     }
 
-    $cars = CarController::getCarByOwner($user->getId());
+    // Cette condition vérifie si l'utilisateur est administrateur ou non.
+    // Si l'utilisateur n'est pas administrateur, on récupère les voitures appartenant à cet utilisateur.
+    // Sinon, on récupère toutes les voitures.
+    if($user->getIsAdmin() == 0)
+    {
+        $cars = CarController::getCarByOwner($user->getId());
+    }
+    else
+    {
+        $cars = CarController::getAllCars();
+    }
 
 }
 
 
-if( isset($_SESSION['deleteMessage'])) {
-    // Affichez un message d'alerte
-    echo "<script type='text/javascript'>
-            alert".$_SESSION['deleteMessage'].";);
-          </script>";
+// if( isset($_SESSION['deleteMessage'])) {
+//     // Affichez un message d'alerte
+//     echo "<script type='text/javascript'>
+//             alert".$_SESSION['deleteMessage'].";);
+//           </script>";
 
-    unset($_SESSION['deleteMessage']);
-}
+//     unset($_SESSION['deleteMessage']);
+// }
 
 // Sidebar
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
@@ -39,6 +49,12 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
 ?>
 
 <section id="content-dashboard">
+<?php if (isset($_SESSION['deleteMessage'])): ?>
+    <div class="alert alert-warning">
+        <?php echo $_SESSION['deleteMessage']; ?>
+    </div>
+    <?php unset($_SESSION['deleteMessage']); ?>
+<?php endif; ?>
 <nav>
             <i class="icon fa fa-menu"></i>
             <h4 class="texte">Tableau de bord Car Showcase</h4>
@@ -141,4 +157,16 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
 
     
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const alert = document.querySelector('.alert');
+        if (alert) {
+            alert.style.display = 'block'; // Affiche l'alerte
+            setTimeout(() => {
+                alert.style.display = 'none'; // Cache l'alerte après 8 secondes
+            }, 8000); // 8000 ms = 8 secondes
+        }
+    });
+</script>
 </html>

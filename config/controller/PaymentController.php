@@ -161,7 +161,7 @@ public static function getPaymentById($id)
 
     }
 
-    public function confirmPayment(Reservation $reservation)
+    public static function confirmPayment(Reservation $reservation)
     {
         $payment = PaymentController::getPaymentById($reservation->getPaymentId());
         $payment->setIsPaid(true);
@@ -172,7 +172,7 @@ public static function getPaymentById($id)
         $car->setDisponibilite(0);
         CarController::updateCar($car);
 
-        return;
+        return true;
     }
 
 

@@ -1,0 +1,44 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: $spacer * 2;
+    border-radius: $border-radius;
+    margin-bottom: $spacer;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.5s forwards, fadeOut 0.5s forwards 4s;
+    display: none; // Caché par défaut
+
+    &.alert-success {
+        background-color: $success-color !important;
+        color: white;
+    }
+
+    &.alert-error {
+        background-color: $error-color !important;
+        color: white;
+    }
+
+    &.alert-warning {
+        background-color: $warning-color !important;
+        color: black;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}

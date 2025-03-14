@@ -8,8 +8,9 @@ class User {
     private $email_;
     private $password_;
     private $role_;
+    private $isAdmin_;
 
-    public function __construct($name, $firstname, $phone, $email, $password, $role, $id = null) {
+    public function __construct($name, $firstname, $phone, $email, $password, $role,$isAdmin_ = 0, $id = null) {
 
         $this->name_ = $name;
         $this->firstname_ = $firstname;
@@ -18,6 +19,7 @@ class User {
         $this->password_ = $password;
         $this->role_ = $role;
         $this->id_ = (int)$id;
+        $this->isAdmin_ = (int)$isAdmin_;
     }
 
     public function getId() {
@@ -78,6 +80,12 @@ class User {
     }
 
 
+    public function getIsAdmin() {
+        return $this->isAdmin_;
+    }
+    // public function setIsAdmin($isAdmin) {
+    //     $this->isAdmin_ = $isAdmin;
+    // }
 
 
     // public static function findByEmail($email) {

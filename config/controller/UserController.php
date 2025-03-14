@@ -12,6 +12,14 @@ class UserController {
         $pdo->execSQL('INSERT INTO users (email, password, nom, prenom, phone, role) VALUES (?, ?, ?, ?, ?, ?)', [$user->getEmail(), $password, $user->getName(),$user->getFirstname(),$user->getPhone() ,$user->getRole()]);
     }
 
+    public static function addAdmin (User $user)
+    {
+        $password = password_hash($user->getPassword(), PASSWORD_DEFAULT);
+
+        $pdo = PDOUtils::getSharedInstance();
+        $pdo->execSQL('INSERT INTO users (email, password, nom, prenom, phone, role, isAdmin) VALUES (?, ?, ?, ?, ?, ?, ?)', [$user->getEmail(), $password, $user->getName(),$user->getFirstname(),$user->getPhone() ,$user->getRole(), 1]);
+    }
+
     public static function login($email, $password) {
         try{
             $pdo = PDOUtils::getSharedInstance();
@@ -19,7 +27,7 @@ class UserController {
             if ($_POST['email']) {
                 if (password_verify($password, $result[0]['password'])){
                   
-                    $user = new User($result[0]['nom'], $result[0]['prenom'], $result[0]['phone'], $result[0]['email'], null, $result[0]['role'], $result[0]['id']);
+                    $user = new User($result[0]['nom'], $result[0]['prenom'], $result[0]['phone'], $result[0]['email'], null, $result[0]['role'],$result[0]['isAdmin'], $result[0]['id']);
                   
                     $_SESSION['user'] = serialize($user);
                     $_SESSION['user_expiration'] = time() + 86400; // 86400 secondes = 1 jour
@@ -40,6 +48,35 @@ class UserController {
        
     }
 
+    public static function getAllUsers()
+    {
+        $pdo = PDOUtils::getSharedInstance();
+        $result = $pdo->requestSQL('SELECT * FROM users', []);
+        $users = [];
+        foreach ($result as $row) {
+            $user = new User($row['nom'], $row['prenom'], $row['phone'], $row['email'], null, $row['role'], $row['isAdmin'], $row['id']);
+            $users[] = $user;
+        }
+        return $users;
+    }
+
+    public static function getUserById($id)
+    {
+        $pdo = PDOUtils::getSharedInstance();
+        $result = $pdo->requestSQL('SELECT * FROM users WHERE id = ?', [$id]);
+        if (count($result) > 0) {
+            $row = $result[0];
+            $user = new User($row['nom'], $row['prenom'], $row['phone'], $row['email'], null, $row['role'], $row['isAdmin'], $row['id']);
+            return $user;
+        }
+        return null;
+    }
+
+    public static function deleteUser($id)
+    {
+        $pdo = PDOUtils::getSharedInstance();
+        $pdo->execSQL('DELETE FROM users WHERE id = ?', [$id]);
+    }
 
 
     

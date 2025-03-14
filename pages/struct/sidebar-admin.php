@@ -15,7 +15,7 @@
             require_once ($_SERVER['DOCUMENT_ROOT'] . '/config/init.php');
 
             $user = unserialize( $_SESSION['user']);
-            $currentUrl = $_SERVER['REQUEST_URI'];
+            $currentUrl = htmlspecialchars($_SERVER['REQUEST_URI']);
             
             
         ?>
@@ -40,13 +40,15 @@
                 <span  class="texte">Véhicules</span>
             </a>
         </li>
+        <?php if($user->getIsAdmin() == 1): ?>
         <li class="<?php strpos($currentUrl, 'dashboard_user') !== false ? 'active' : '' ?>" >
-            <a href="../admin/dashboard_user.php">
+            <a href="../admin/dashboard_users.php">
                 <i class="icon fa fa-users
                 "></i>
                 <span  class="texte">Utilisateurs</span>
             </a>
         </li>
+        <?php endif; ?>
         <li class="<?php strpos($currentUrl, 'dashboard_order')!== false ? 'active' : '' ?>" >
             <a href="../admin/dashboard_order.php">
                 <i class="icon fa fa-shopping-cart

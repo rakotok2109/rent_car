@@ -124,12 +124,19 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
                             <i class="icon fa-solid fa-edit" style="color:green; font-size: 20px;"></i>
                             </button>
                         </form>
-                        <form action="/routes/user.php?action=delete" method="POST" >
-                            <input type="hidden" name="id" value="<?php echo $user->getId(); ?>">
-                            <button class="action_btn" type="submit">
-                                <i class="icon fa-solid fa-trash" style="color:red; font-size: 20px;"></i>
-                            </button>
-                        </form>
+                        <button class="action_btn" onclick="showDeleteModal(<?php echo $user->getId(); ?>)">
+                            <i class="icon fa-solid fa-trash" style="color:red; font-size: 20px;"></i>
+                        </button>
+                        <div id="deleteModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeModal()">&times;</span>
+                                <p class="modal-title">Êtes-vous sûr de vouloir supprimer cet utilisateur ?</p>
+                                <form class="modal-body" action="/routes/user.php?action=delete" method="POST">
+                                    <input type="hidden" name="id" value="<?php $user->getId(); ?>">
+                                    <button type="submit">Oui</button>
+                                </form>
+                            </div>
+                        </div>
                     
                     </td>
             </tr>
@@ -145,6 +152,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
 
 
 <script>
+    // Fonction qui affiche une alerte avec animation
     document.addEventListener('DOMContentLoaded', function() {
         const alert = document.querySelector('.alert');
         if (alert) {
@@ -155,4 +163,18 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
             }, 8000); // 8000 ms = 8 secondes
         }
     });
+
+
+
+    function showDeleteModal(id) {
+                                var modal = document.getElementById("deleteModal");
+                                modal.style.display = "block";
+                                var idInput = modal.querySelector("input[name='id']");
+                                idInput.value = id;
+                            }
+
+                            function closeModal() {
+                                var modal = document.getElementById("deleteModal");
+                                modal.style.display = "none";
+                            }
 </script>

@@ -1,42 +1,50 @@
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
-
-.navbar-container{
-    position: sticky;
-    top: 0;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: space-between !important;
-    align-items: center;
-
-    .logo {
-        color: $white-color;
-        font-size: 24px;
-        font-weight: bold;
-        margin-right: $margin-unit*4;
-    }
-
-
-    .navbar 
-{
+.navbar {
     @include flex-center;
     background-color: $primary-color;
+    z-index: 1000;
 
-    ul{
+    ul {
         display: flex;
         gap: 20px;
         text-decoration: none !important;
-        margin-right: $margin-unit*4;
+        margin-right: $margin-unit * 4;
 
         li {
             list-style: none;
-        }
+            position: relative; // Nécessaire pour le positionnement du dropdown
 
-        li a {
-            color: $white-color;
-            text-decoration: none;
-            font-weight: bold;
+            a {
+                color: $white-color;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            // Styles pour le menu déroulant
+            .dropdown {
+                background-color: white !important;
+               z-index: 2000;
+                display: none; // Cacher le dropdown par défaut
+                position: absolute; // Positionner le dropdown
+                top: 100%; // Positionner juste en dessous du lien parent
+                left: 0;
+                background-color: $primary-color; // Couleur de fond du dropdown
+                padding: $padding-unit*3 0; // Espacement vertical
+
+                li {
+                    padding: $padding-unit $padding-unit*4; 
+
+                    a {
+                        color: $primary-color !important;
+                    }
+                }
+            }
+
+
+            &:hover .dropdown {
+                display: block; 
+            }
         }
     }
-}
 }

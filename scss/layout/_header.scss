@@ -37,6 +37,7 @@
 .hero {
    
    margin-top: 0;
+//    padding: $padding-unit*2;
     color: $white-color;
     // padding: $padding-unit*10 $padding-unit*5;
   
@@ -58,17 +59,17 @@ margin: 0 !important;
             background-color: $primary-color !important;
             display: flex;
             flex-direction: row;
-            padding: 0 $padding-unit*4;
+            padding:  $padding-unit*4;
             align-items: center;
             justify-content: center;
 
           
 
             .car-image {
-                scale: 0.8;
-              margin-right: 10%;  
+                scale: 0.6;
+              margin-right: 0;  
               position: relative;
-              z-index: 2;
+            //   z-index: 2;
                 top: 20px;
                 right: 0;
                 width: 50%;
@@ -82,7 +83,7 @@ margin: 0 !important;
                 .cercle
                 {
                     position: absolute; 
-                    top: 50%; 
+                    top: 55%; 
                     left: 78%; 
                     width: 350px; 
                     height: 400px;

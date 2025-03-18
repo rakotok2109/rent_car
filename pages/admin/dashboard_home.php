@@ -116,8 +116,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/pages/struct/sidebar-admin.php');
 <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h3 style="margin-bottom:20px">Télécharger les états financiers PDF</h3>
-            <div class="form">
+            <h3 class="modal-title">Télécharger les états financiers PDF</h3>
+            <div class="form modal-body">
                 <div class="">
                     <form action="" method="post">
                         <input class="hidden" value="week" name="range" type="text">

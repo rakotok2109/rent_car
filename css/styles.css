@@ -449,39 +449,46 @@ button:hover {
   color: #ffffff;
 }
 
-.navbar-container {
-  position: sticky;
-  top: 0;
-  margin-bottom: 0;
-  display: flex;
-  justify-content: space-between !important;
-  align-items: center;
-}
-.navbar-container .logo {
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: bold;
-  margin-right: 16px;
-}
-.navbar-container .navbar {
+.navbar {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #08323D;
+  z-index: 1000;
 }
-.navbar-container .navbar ul {
+.navbar ul {
   display: flex;
   gap: 20px;
   text-decoration: none !important;
   margin-right: 16px;
 }
-.navbar-container .navbar ul li {
+.navbar ul li {
   list-style: none;
+  position: relative;
 }
-.navbar-container .navbar ul li a {
+.navbar ul li a {
   color: #ffffff;
   text-decoration: none;
   font-weight: bold;
+}
+.navbar ul li .dropdown {
+  background-color: white !important;
+  z-index: 2000;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #08323D;
+  padding: 12px 0;
+}
+.navbar ul li .dropdown li {
+  padding: 4px 16px;
+}
+.navbar ul li .dropdown li a {
+  color: #08323D !important;
+}
+.navbar ul li:hover .dropdown {
+  display: block;
 }
 
 .input {
@@ -1430,10 +1437,9 @@ input.hidden {
 .modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
@@ -1452,12 +1458,22 @@ input.hidden {
   text-align: center;
   position: relative;
 }
+.modal .modal-content .modal-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.modal .modal-content .modal-body {
+  text-align: center;
+  justify-content: center;
+}
 .modal .close {
   position: absolute;
   top: 10px;
   right: 10px;
   cursor: pointer;
   font-size: 1.5rem;
+  color: #000000;
 }
 
 .modal-order {
@@ -1724,15 +1740,14 @@ input.hidden {
   background-color: #08323D !important;
   display: flex;
   flex-direction: row;
-  padding: 0 16px;
+  padding: 16px;
   align-items: center;
   justify-content: center;
 }
 .hero .container .hero1 .car-image {
-  scale: 0.8;
-  margin-right: 10%;
+  scale: 0.6;
+  margin-right: 0;
   position: relative;
-  z-index: 2;
   top: 20px;
   right: 0;
   width: 50%;
@@ -1743,7 +1758,7 @@ input.hidden {
 }
 .hero .container .hero1 .car-image .cercle {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 78%;
   width: 350px;
   height: 400px;

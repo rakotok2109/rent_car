@@ -9,7 +9,7 @@
    <body>
       <!-- Navbar -->
    <div class="container navbar-container">
-            <div class="logo">NN CAR</div>
+            <div class="logo">CAR Showcase</div>
             <nav class="navbar">
                 <ul>
                     <li><a href="/">Accueil</a></li>
@@ -20,14 +20,28 @@
                     <?php if (isset( $_SESSION['user'])) :
                         $user = unserialize($_SESSION['user']);
                         ?>
-                        <li><a href="/pages/account">
-                            <!-- <i class="fas fa-user"></i> -->
-                             <span><?php echo $user->getName();?></span>
-                             <span><?php echo $user->getId();?></span>
-                            <i class="fas fa-user"></i>
+<li>
+                <a href="#">
+                <span><?php echo $user->getName();?></span>
+                             <span><?php echo $user->getFirstname();?></span>
+                             <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <ul class="dropdown">
+                <?php if ($user->getIsAdmin() == 1) :
+                      
+                        ?>
 
-                            </a></li>
-                        <li><a href="../../routes/verif.php?id=logout">Déconnexion</a></li>
+                    <li><a href="/pages/admin/dashboard_home.php">Dashboard</a></li>
+                    <?php endif; ?>
+
+                    <li><a href="/pages/account">Comptes</a></li>
+
+                    <li><a href="/pages/show_order">Reservations</a></li>
+                    <li><a href="../../routes/verif.php?id=logout">Déconnexion</a></li>
+                </ul>
+            </li>
+
+                       
                     <?php else : ?>
                         <li><a href="/pages/auth/login.php">Se connecter</a></li>
                     <?php endif; ?>
